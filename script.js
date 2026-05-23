@@ -3,6 +3,8 @@ const menuToggle = document.querySelector('.menu-toggle');
 const revealItems = document.querySelectorAll('.reveal');
 const statNodes = document.querySelectorAll('[data-count]');
 
+const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 menuToggle?.addEventListener('click', () => {
   const isOpen = header?.getAttribute('data-open') === 'true';
   header?.setAttribute('data-open', String(!isOpen));
@@ -63,3 +65,30 @@ const statsObserver = new IntersectionObserver(
 );
 
 statNodes.forEach(node => statsObserver.observe(node));
+
+// Lightweight parallax for backdrops and a tiny tilt for the visual shell
+if (!prefersReduced) {
+  const backdropA = document.querySelector('.backdrop-a');
+  const backdropB = document.querySelector('.backdrop-b');
+  const visualShell = document.querySelector('.visual-shell');
+
+  window.addEventListener('mousemove', e => {
+    const x = (e.clientX / window.innerWidth - 0.5) * 2; // -1 .. 1
+    const y = (e.clientY / window.innerHeight - 0.5) * 2;
+
+    if (backdropA) backdropA.style.transform = `translate(${x * 8}px, ${y * 6}px)`;
+    if (backdropB) backdropB.style.transform = `translate(${x * -10}px, ${y * -6}px)`;
+    if (visualShell) visualShell.style.transform = `rotateX(${y * 2}deg) rotateY(${x * 3}deg)`;
+  }, { passive: true });
+
+  // subtle idle parallax using requestAnimationFrame
+  let lastX = 0, lastY = 0;
+  const lerp = (a, b, t) => a + (b - a) * t;
+  function idleLoop() {
+    lastX = lerp(lastX, 0, 0.02);
+    lastY = lerp(lastY, -2, 0.002);
+    if (backdropA) backdropA.style.transform += ` translateY(${lastY}px)`;
+    requestAnimationFrame(idleLoop);
+  }
+  requestAnimationFrame(idleLoop);
+}
