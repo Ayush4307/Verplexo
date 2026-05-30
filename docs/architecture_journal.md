@@ -70,3 +70,7 @@ Scrollbar hiding parameters to maintain high-end clean layout grids.
 ## Note 17: Layout Contrast strategy
 Deep pitch black backdrop contrasted against dynamic colored backdrops.
 
+
+## Note 18: Typography Architecture pairing
+Plus Jakarta Sans for high-density readable body copy typography.
+
