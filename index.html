@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -132,49 +132,282 @@
 
       <section id="services" class="section">
         <div class="section-heading reveal">
-          <span class="section-kicker">What we do</span>
-          <h2>End-to-end execution, from product thinking to launch-ready engineering.</h2>
+          <span class="section-kicker">Flagship Services</span>
+          <h2>Never Settle. High-velocity engineering, built to perform.</h2>
           <p>
-            We bring design, engineering, and product strategy into one focused workflow so
-            teams can ship with confidence and keep momentum after launch.
+            Verplexo delivers premium software, high-performance web systems, and AI-driven platforms. Explore our flagship product tiers designed for ambitious teams.
           </p>
         </div>
 
-        <div class="feature-grid">
-          <article class="feature-card reveal">
-            <span class="feature-index">01</span>
-            <h3>Product websites</h3>
-            <p>
-              High-converting marketing sites with a distinct visual identity, fast load times,
-              and thoughtful content structure.
-            </p>
-          </article>
-          <article class="feature-card reveal">
-            <span class="feature-index">02</span>
-            <h3>Custom web apps</h3>
-            <p>
-              Secure, scalable interfaces for customer portals, operations, analytics, and
-              internal tooling.
-            </p>
-          </article>
-          <article class="feature-card reveal">
-            <span class="feature-index">03</span>
-            <h3>Design systems</h3>
-            <p>
-              Repeatable components and visual rules that keep your product cohesive as it
-              grows.
-            </p>
-          </article>
-          <article class="feature-card reveal">
-            <span class="feature-index">04</span>
-            <h3>Automation and AI</h3>
-            <p>
-              Workflow automation, AI-assisted experiences, and integrations that remove manual
-              work from daily operations.
-            </p>
-          </article>
+        <!-- OnePlus-style Flagship Carousel Controls -->
+        <div class="slider-controls reveal">
+          <span class="slider-indicator">Flagship Series 2026</span>
+          <div class="slider-buttons">
+            <button class="slider-btn prev-btn" id="slide-prev" aria-label="Previous Slide">&larr;</button>
+            <button class="slider-btn next-btn" id="slide-next" aria-label="Next Slide">&rarr;</button>
+          </div>
+        </div>
+
+        <!-- Horizontal scrollable slider -->
+        <div class="services-slider-container reveal">
+          <div class="services-slider" id="services-slider">
+            
+            <!-- Card 1: Verplexo Core -->
+            <article class="flagship-card" data-index="0">
+              <div class="card-glow"></div>
+              <div class="flagship-header">
+                <span class="badge badge-primary">Fast & Smooth</span>
+                <span class="card-series">Model V-Core</span>
+              </div>
+              <div class="flagship-body">
+                <h3>Verplexo Core</h3>
+                <p class="flagship-kicker">Premium Marketing & Brand Websites</p>
+                <p class="flagship-desc">High-converting experiences with custom web aesthetics, blazing-fast speed, and immaculate SEO optimization.</p>
+                
+                <div class="flagship-specs">
+                  <div class="spec-row">
+                    <span>Performance Score</span>
+                    <strong>100 / 100</strong>
+                  </div>
+                  <div class="spec-row">
+                    <span>First Paint</span>
+                    <strong>&lt; 0.2s</strong>
+                  </div>
+                  <div class="spec-row">
+                    <span>Stack</span>
+                    <strong>Next.js / Vanilla</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="flagship-footer">
+                <a class="flagship-link" href="#contact">Configure & Build &rarr;</a>
+              </div>
+            </article>
+
+            <!-- Card 2: Verplexo Scale -->
+            <article class="flagship-card" data-index="1">
+              <div class="card-glow"></div>
+              <div class="flagship-header">
+                <span class="badge badge-secondary">Peak Power</span>
+                <span class="card-series">Model V-Scale</span>
+              </div>
+              <div class="flagship-body">
+                <h3>Verplexo Scale</h3>
+                <p class="flagship-kicker">Custom High-Performance Web Apps</p>
+                <p class="flagship-desc">Robust customer portals, interactive dashboards, real-time sync systems, and secure full-stack software architectures.</p>
+                
+                <div class="flagship-specs">
+                  <div class="spec-row">
+                    <span>Architecture</span>
+                    <strong>Serverless / Edge</strong>
+                  </div>
+                  <div class="spec-row">
+                    <span>Databases</span>
+                    <strong>Supabase / SQL</strong>
+                  </div>
+                  <div class="spec-row">
+                    <span>Launch Cycle</span>
+                    <strong>14 - 30 days</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="flagship-footer">
+                <a class="flagship-link" href="#contact">Configure & Build &rarr;</a>
+              </div>
+            </article>
+
+            <!-- Card 3: Verplexo Intelligence -->
+            <article class="flagship-card" data-index="2">
+              <div class="card-glow"></div>
+              <div class="flagship-header">
+                <span class="badge badge-accent">Next-Gen AI</span>
+                <span class="card-series">Model V-Intel</span>
+              </div>
+              <div class="flagship-body">
+                <h3>Verplexo Intelligence</h3>
+                <p class="flagship-kicker">AI Integrations & Workflow Automation</p>
+                <p class="flagship-desc">Leverage large language models, custom AI agents, automated data scraping pipelines, and intelligent operations scaling.</p>
+                
+                <div class="flagship-specs">
+                  <div class="spec-row">
+                    <span>AI Model</span>
+                    <strong>LLMs / Agents</strong>
+                  </div>
+                  <div class="spec-row">
+                    <span>Efficiency Gain</span>
+                    <strong>Up to 5x</strong>
+                  </div>
+                  <div class="spec-row">
+                    <span>Integrations</span>
+                    <strong>REST / Webhooks</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="flagship-footer">
+                <a class="flagship-link" href="#contact">Configure & Build &rarr;</a>
+              </div>
+            </article>
+
+          </div>
         </div>
       </section>
+
+      <!-- Interactive Spec Sheet Section -->
+      <section class="section specs-section">
+        <div class="section-heading reveal">
+          <span class="section-kicker">Never Settle Specification</span>
+          <h2>The Spec Sheet that dominates the industry benchmark.</h2>
+          <p>
+            Compare our engineering standards side-by-side with typical agency templates and bloated frameworks.
+          </p>
+        </div>
+
+        <div class="specs-interactive-container reveal">
+          <!-- Navigation tabs matching OnePlus spec sheet toggles -->
+          <div class="specs-tabs">
+            <button class="spec-tab active" data-tab="performance" id="tab-btn-performance">Performance Specs</button>
+            <button class="spec-tab" data-tab="engineering" id="tab-btn-engineering">Engineering Build</button>
+            <button class="spec-tab" data-tab="business" id="tab-btn-business">Business Value</button>
+          </div>
+
+          <div class="specs-grid-display">
+            <!-- Left panel: Glowing flagship title -->
+            <div class="specs-flagship-card">
+              <span class="specs-flagship-label">Flagship Engine</span>
+              <h3>Verplexo Core OS</h3>
+              <p>Tailored architecture designed for peak speed, flawless search ranking, and modular expansion.</p>
+              <div class="specs-logo">V</div>
+            </div>
+
+            <!-- Right panel: Comparison lines -->
+            <div class="specs-comparison-list">
+              
+              <!-- Tab 1: Performance -->
+              <div class="tab-pane active" id="pane-performance">
+                <div class="spec-comparison-row">
+                  <div class="spec-info">
+                    <h4>Lighthouse Speed Score</h4>
+                    <p>Real-world page loading optimization and speed index.</p>
+                  </div>
+                  <div class="spec-values">
+                    <div class="spec-val-verplexo">
+                      <span class="label-v">Verplexo</span>
+                      <strong>100 / 100</strong>
+                      <div class="bar-outer"><div class="bar-inner verplexo-green" style="width: 100%"></div></div>
+                    </div>
+                    <div class="spec-val-standard">
+                      <span class="label-s">Standard Build</span>
+                      <strong>68 / 100</strong>
+                      <div class="bar-outer"><div class="bar-inner standard-gray" style="width: 68%"></div></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="spec-comparison-row">
+                  <div class="spec-info">
+                    <h4>Time to Interactive (TTI)</h4>
+                    <p>Time before the page becomes fully responsive to user input.</p>
+                  </div>
+                  <div class="spec-values">
+                    <div class="spec-val-verplexo">
+                      <span class="label-v">Verplexo</span>
+                      <strong>0.2s</strong>
+                      <div class="bar-outer"><div class="bar-inner verplexo-green" style="width: 98%"></div></div>
+                    </div>
+                    <div class="spec-val-standard">
+                      <span class="label-s">Standard Build</span>
+                      <strong>2.8s</strong>
+                      <div class="bar-outer"><div class="bar-inner standard-gray" style="width: 25%"></div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tab 2: Engineering -->
+              <div class="tab-pane" id="pane-engineering" style="display: none;">
+                <div class="spec-comparison-row">
+                  <div class="spec-info">
+                    <h4>Code Bloat & Bundle Size</h4>
+                    <p>Optimized package size without unnecessary scripts and libraries.</p>
+                  </div>
+                  <div class="spec-values">
+                    <div class="spec-val-verplexo">
+                      <span class="label-v">Verplexo</span>
+                      <strong>Blazing Light (&lt;12KB)</strong>
+                      <div class="bar-outer"><div class="bar-inner verplexo-green" style="width: 95%"></div></div>
+                    </div>
+                    <div class="spec-val-standard">
+                      <span class="label-s">Standard Build</span>
+                      <strong>Heavy Bloat (&gt;350KB)</strong>
+                      <div class="bar-outer"><div class="bar-inner standard-gray" style="width: 20%"></div></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="spec-comparison-row">
+                  <div class="spec-info">
+                    <h4>SEO & Indexability</h4>
+                    <p>Semantic HTML5 structure and clean server-ready index metadata.</p>
+                  </div>
+                  <div class="spec-values">
+                    <div class="spec-val-verplexo">
+                      <span class="label-v">Verplexo</span>
+                      <strong>S-Tier (100%)</strong>
+                      <div class="bar-outer"><div class="bar-inner verplexo-green" style="width: 100%"></div></div>
+                    </div>
+                    <div class="spec-val-standard">
+                      <span class="label-s">Standard Build</span>
+                      <strong>C-Tier (65%)</strong>
+                      <div class="bar-outer"><div class="bar-inner standard-gray" style="width: 65%"></div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tab 3: Business -->
+              <div class="tab-pane" id="pane-business" style="display: none;">
+                <div class="spec-comparison-row">
+                  <div class="spec-info">
+                    <h4>Development Lead Time</h4>
+                    <p>Sprint cadence to ship the first fully-functional web model.</p>
+                  </div>
+                  <div class="spec-values">
+                    <div class="spec-val-verplexo">
+                      <span class="label-v">Verplexo</span>
+                      <strong>48 Hours</strong>
+                      <div class="bar-outer"><div class="bar-inner verplexo-green" style="width: 95%"></div></div>
+                    </div>
+                    <div class="spec-val-standard">
+                      <span class="label-s">Standard Build</span>
+                      <strong>2 - 3 Weeks</strong>
+                      <div class="bar-outer"><div class="bar-inner standard-gray" style="width: 30%"></div></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="spec-comparison-row">
+                  <div class="spec-info">
+                    <h4>Hosting & Server Overheads</h4>
+                    <p>Leveraging optimized edge routing and lightweight static deployment cost.</p>
+                  </div>
+                  <div class="spec-values">
+                    <div class="spec-val-verplexo">
+                      <span class="label-v">Verplexo</span>
+                      <strong>$0 / mo (Serverless)</strong>
+                      <div class="bar-outer"><div class="bar-inner verplexo-green" style="width: 100%"></div></div>
+                    </div>
+                    <div class="spec-val-standard">
+                      <span class="label-s">Standard Build</span>
+                      <strong>$45+/mo (Traditional)</strong>
+                      <div class="bar-outer"><div class="bar-inner standard-gray" style="width: 15%"></div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
 
       <section id="work" class="section section-split">
         <div class="section-heading reveal">
@@ -325,3 +558,4 @@
     <script src="script.js"></script>
   </body>
 </html>
+
