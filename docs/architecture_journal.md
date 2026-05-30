@@ -66,3 +66,7 @@ Integrating native touch scroll support in CSS for mobile users.
 ## Note 16: Custom Scrollbar parameters
 Scrollbar hiding parameters to maintain high-end clean layout grids.
 
+
+## Note 17: Layout Contrast strategy
+Deep pitch black backdrop contrasted against dynamic colored backdrops.
+
