@@ -1,4 +1,4 @@
-const header = document.querySelector('.site-header');
+﻿const header = document.querySelector('.site-header');
 const menuToggle = document.querySelector('.menu-toggle');
 const revealItems = document.querySelectorAll('.reveal');
 const statNodes = document.querySelectorAll('[data-count]');
@@ -92,3 +92,100 @@ if (!prefersReduced) {
   }
   requestAnimationFrame(idleLoop);
 }
+
+// ==========================================================================
+// OnePlus-Inspired Horizontal Slider & Specs Sheet Logic
+// ==========================================================================
+
+// 1. Horizontal Slider Dragging & Navigation Button Logic
+const slider = document.getElementById('services-slider');
+const prevBtn = document.getElementById('slide-prev');
+const nextBtn = document.getElementById('slide-next');
+
+if (slider) {
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  slider.addEventListener('mousedown', (e) => {
+    isDown = true;
+    slider.classList.add('active');
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+  });
+
+  slider.addEventListener('mouseleave', () => {
+    isDown = false;
+    slider.classList.remove('active');
+  });
+
+  slider.addEventListener('mouseup', () => {
+    isDown = false;
+    slider.classList.remove('active');
+  });
+
+  slider.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startX) * 1.5; // scroll speed multiplier
+    slider.scrollLeft = scrollLeft - walk;
+  });
+
+  // Slide buttons
+  prevBtn?.addEventListener('click', () => {
+    const cardWidth = slider.querySelector('.flagship-card')?.offsetWidth || 390;
+    slider.scrollBy({ left: -cardWidth - 24, behavior: 'smooth' });
+  });
+
+  nextBtn?.addEventListener('click', () => {
+    const cardWidth = slider.querySelector('.flagship-card')?.offsetWidth || 390;
+    slider.scrollBy({ left: cardWidth + 24, behavior: 'smooth' });
+  });
+}
+
+// 2. Interactive Spec Sheet Tab Switching
+const tabButtons = document.querySelectorAll('.spec-tab');
+const tabPanes = document.querySelectorAll('.tab-pane');
+
+tabButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const targetTab = button.dataset.tab;
+
+    // Toggle button active state
+    tabButtons.forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+
+    // Show corresponding pane
+    tabPanes.forEach(pane => {
+      if (pane.id === `pane-${targetTab}`) {
+        pane.style.display = 'flex';
+        // Reset bar-inner animations to let them expand beautifully on display
+        const progressBars = pane.querySelectorAll('.bar-inner');
+        progressBars.forEach(bar => {
+          const targetWidth = bar.style.width;
+          bar.style.width = '0%';
+          setTimeout(() => {
+            bar.style.width = targetWidth;
+          }, 50);
+        });
+      } else {
+        pane.style.display = 'none';
+      }
+    });
+  });
+});
+
+// Trigger initial bar expansion animation on load for the active pane
+document.addEventListener('DOMContentLoaded', () => {
+  const activeBars = document.querySelectorAll('.tab-pane.active .bar-inner');
+  activeBars.forEach(bar => {
+    const targetWidth = bar.style.width;
+    bar.style.width = '0%';
+    setTimeout(() => {
+      bar.style.width = targetWidth;
+    }, 150);
+  });
+});
+
+
