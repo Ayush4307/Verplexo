@@ -78,3 +78,7 @@ Plus Jakarta Sans for high-density readable body copy typography.
 ## Note 19: Display Fonts Selection
 Space Grotesk typography for flagship technical headers.
 
+
+## Note 20: Lighthouse Core Web Vitals
+Targeting S-Tier Core Web Vitals to rank top on search results.
+
