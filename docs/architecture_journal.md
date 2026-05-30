@@ -98,3 +98,7 @@ Applying ultra-smooth scale transitions on interactive card hovers.
 ## Note 24: Shadow Depth settings depth
 Deep elevated drop shadows simulating physical layered glass panels.
 
+
+## Note 25: Code Bundle Density weight
+Minimizing total package weight under 12KB for instant loading.
+
