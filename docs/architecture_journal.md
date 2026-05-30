@@ -54,3 +54,7 @@ Leveraging HTML5 article and section structures to maximize readability.
 ## Note 13: Performance Overhead Check
 Zero-dependency pure Vanilla JS implementation to avoid bloated bundles.
 
+
+## Note 14: Responsive Scaling rules
+Media queries targeting precise mobile and tablet layout break points.
+
