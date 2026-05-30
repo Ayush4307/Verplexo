@@ -18,3 +18,7 @@ HSL-based radial gradients for premium card background visual depths.
 ## Note 4: Glass Sheen Properties
 Using overlay mix-blend modes on flagship cards for maximum material gloss.
 
+
+## Note 5: Card Drag Physics
+Multiplied desktop walk speed coordinate tracking for fluid mouse dragging.
+
