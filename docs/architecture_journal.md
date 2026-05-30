@@ -42,3 +42,7 @@ Instant class toggles for seamless spec sheets pane navigation.
 ## Note 10: Chart Reset transition
 Setting progress width to 0% before expanding to trigger CSS GPU transition.
 
+
+## Note 11: Accessibility Toggles
+High-contrast outlines and aria attributes for slider tab navigation.
+
