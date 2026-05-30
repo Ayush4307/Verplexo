@@ -10,3 +10,7 @@ Delivering bold product branding with tech-focused presentation metrics.
 ## Note 2: Visual Speed Metrics
 Under 0.2s first paint optimization utilizing lightweight serverless assets.
 
+
+## Note 3: Dynamic Glow Settings
+HSL-based radial gradients for premium card background visual depths.
+
