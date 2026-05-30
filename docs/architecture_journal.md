@@ -26,3 +26,7 @@ Multiplied desktop walk speed coordinate tracking for fluid mouse dragging.
 ## Note 6: Carousel Controls
 Arrow click offsets matching exact dynamic card widths including gaps.
 
+
+## Note 7: Custom Badges styling
+Semi-transparent borders and low-opacity fills for high-end product tags.
+
