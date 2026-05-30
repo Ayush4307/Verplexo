@@ -22,3 +22,7 @@ Using overlay mix-blend modes on flagship cards for maximum material gloss.
 ## Note 5: Card Drag Physics
 Multiplied desktop walk speed coordinate tracking for fluid mouse dragging.
 
+
+## Note 6: Carousel Controls
+Arrow click offsets matching exact dynamic card widths including gaps.
+
