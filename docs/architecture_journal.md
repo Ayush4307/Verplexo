@@ -38,3 +38,7 @@ Fluid layout transition curves for technical comparison metrics.
 ## Note 9: Interactive Tabs panel
 Instant class toggles for seamless spec sheets pane navigation.
 
+
+## Note 10: Chart Reset transition
+Setting progress width to 0% before expanding to trigger CSS GPU transition.
+
