@@ -82,3 +82,7 @@ Space Grotesk typography for flagship technical headers.
 ## Note 20: Lighthouse Core Web Vitals
 Targeting S-Tier Core Web Vitals to rank top on search results.
 
+
+## Note 21: DOM Performance optimization
+Utilizing passive mousemove scroll listeners to reduce render lag.
+
