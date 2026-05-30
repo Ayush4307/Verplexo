@@ -30,3 +30,7 @@ Arrow click offsets matching exact dynamic card widths including gaps.
 ## Note 7: Custom Badges styling
 Semi-transparent borders and low-opacity fills for high-end product tags.
 
+
+## Note 8: Progress Indicator curve
+Fluid layout transition curves for technical comparison metrics.
+
