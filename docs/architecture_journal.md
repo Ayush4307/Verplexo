@@ -14,3 +14,7 @@ Under 0.2s first paint optimization utilizing lightweight serverless assets.
 ## Note 3: Dynamic Glow Settings
 HSL-based radial gradients for premium card background visual depths.
 
+
+## Note 4: Glass Sheen Properties
+Using overlay mix-blend modes on flagship cards for maximum material gloss.
+
