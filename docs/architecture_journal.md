@@ -50,3 +50,7 @@ High-contrast outlines and aria attributes for slider tab navigation.
 ## Note 12: Semantic HTML Elements
 Leveraging HTML5 article and section structures to maximize readability.
 
+
+## Note 13: Performance Overhead Check
+Zero-dependency pure Vanilla JS implementation to avoid bloated bundles.
+
