@@ -90,3 +90,7 @@ Utilizing passive mousemove scroll listeners to reduce render lag.
 ## Note 22: Modular Variable Setup rule
 Separate CSS custom properties for color tokens and rounded corners.
 
+
+## Note 23: Transition Dynamics timing
+Applying ultra-smooth scale transitions on interactive card hovers.
+
