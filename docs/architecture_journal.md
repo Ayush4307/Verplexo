@@ -86,3 +86,7 @@ Targeting S-Tier Core Web Vitals to rank top on search results.
 ## Note 21: DOM Performance optimization
 Utilizing passive mousemove scroll listeners to reduce render lag.
 
+
+## Note 22: Modular Variable Setup rule
+Separate CSS custom properties for color tokens and rounded corners.
+
