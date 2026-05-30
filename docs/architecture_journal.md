@@ -46,3 +46,7 @@ Setting progress width to 0% before expanding to trigger CSS GPU transition.
 ## Note 11: Accessibility Toggles
 High-contrast outlines and aria attributes for slider tab navigation.
 
+
+## Note 12: Semantic HTML Elements
+Leveraging HTML5 article and section structures to maximize readability.
+
