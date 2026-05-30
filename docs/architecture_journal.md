@@ -74,3 +74,7 @@ Deep pitch black backdrop contrasted against dynamic colored backdrops.
 ## Note 18: Typography Architecture pairing
 Plus Jakarta Sans for high-density readable body copy typography.
 
+
+## Note 19: Display Fonts Selection
+Space Grotesk typography for flagship technical headers.
+
