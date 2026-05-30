@@ -58,3 +58,7 @@ Zero-dependency pure Vanilla JS implementation to avoid bloated bundles.
 ## Note 14: Responsive Scaling rules
 Media queries targeting precise mobile and tablet layout break points.
 
+
+## Note 15: Mobile Swipe Gestures support
+Integrating native touch scroll support in CSS for mobile users.
+
