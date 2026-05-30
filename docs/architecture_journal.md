@@ -62,3 +62,7 @@ Media queries targeting precise mobile and tablet layout break points.
 ## Note 15: Mobile Swipe Gestures support
 Integrating native touch scroll support in CSS for mobile users.
 
+
+## Note 16: Custom Scrollbar parameters
+Scrollbar hiding parameters to maintain high-end clean layout grids.
+
