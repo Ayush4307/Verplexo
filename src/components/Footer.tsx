@@ -6,3 +6,5 @@ export const Footer = () => {
     </footer>
   );
 };
+
+// verplexo-optim-iter-10
