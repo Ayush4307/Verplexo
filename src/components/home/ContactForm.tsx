@@ -59,14 +59,30 @@ export function ContactForm() {
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-zinc-700">Email</label>
               <div className="mt-1">
-                <input id="email" name="email" type="email" className="py-3 px-4 block w-full shadow-sm focus:ring-brand focus:border-brand border-zinc-300 rounded-md bg-zinc-50 outline-none" />
+                <input 
+                  id="email" 
+                  name="email" 
+                  type="email" 
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="py-3 px-4 block w-full shadow-sm focus:ring-brand focus:border-brand border-zinc-300 rounded-md bg-zinc-50 outline-none" 
+                />
               </div>
             </div>
 
             <div>
               <label htmlFor="message" className="block text-sm font-medium text-zinc-700">Project details</label>
               <div className="mt-1">
-                <textarea id="message" name="message" rows={4} className="py-3 px-4 block w-full shadow-sm focus:ring-brand focus:border-brand border-zinc-300 rounded-md bg-zinc-50 outline-none"></textarea>
+                <textarea 
+                  id="message" 
+                  name="message" 
+                  rows={4} 
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  className="py-3 px-4 block w-full shadow-sm focus:ring-brand focus:border-brand border-zinc-300 rounded-md bg-zinc-50 outline-none"
+                />
               </div>
             </div>
 
