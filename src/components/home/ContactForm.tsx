@@ -29,13 +29,29 @@ export function ContactForm() {
               <div>
                 <label htmlFor="first-name" className="block text-sm font-medium text-zinc-700">First name</label>
                 <div className="mt-1">
-                  <input type="text" name="first-name" id="first-name" className="py-3 px-4 block w-full shadow-sm focus:ring-brand focus:border-brand border-zinc-300 rounded-md bg-zinc-50 outline-none" />
+                  <input 
+                    type="text" 
+                    name="firstName" 
+                    id="firstName" 
+                    value={formData.firstName}
+                    onChange={handleChange}
+                    required
+                    className="py-3 px-4 block w-full shadow-sm focus:ring-brand focus:border-brand border-zinc-300 rounded-md bg-zinc-50 outline-none" 
+                  />
                 </div>
               </div>
               <div>
                 <label htmlFor="last-name" className="block text-sm font-medium text-zinc-700">Last name</label>
                 <div className="mt-1">
-                  <input type="text" name="last-name" id="last-name" className="py-3 px-4 block w-full shadow-sm focus:ring-brand focus:border-brand border-zinc-300 rounded-md bg-zinc-50 outline-none" />
+                  <input 
+                    type="text" 
+                    name="lastName" 
+                    id="lastName" 
+                    value={formData.lastName}
+                    onChange={handleChange}
+                    required
+                    className="py-3 px-4 block w-full shadow-sm focus:ring-brand focus:border-brand border-zinc-300 rounded-md bg-zinc-50 outline-none" 
+                  />
                 </div>
               </div>
             </div>
