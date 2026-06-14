@@ -17,6 +17,31 @@ export function ContactForm() {
       [e.target.name]: e.target.value
     })
   }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setError('')
+
+    try {
+      const response = await fetch('https://formspree.io/f/your-form-id-here', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      })
+
+      if (response.ok) {
+        setIsSuccess(true)
+        setFormData({ firstName: '', lastName: '', email: '', message: '' })
+      } else {
+        setError('Something went wrong. Please try again.')
+      }
+    } catch (err) {
+      setError('Network error. Please check your connection.')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
   return (
     <div className="bg-zinc-50 py-24">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
