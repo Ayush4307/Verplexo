@@ -3,6 +3,9 @@ import { Navbar } from './components/Navbar'
 import { Footer } from './components/Footer'
 import { HomePage } from './pages/HomePage'
 import { DashboardPage } from './pages/DashboardPage'
+import { ServicesPage } from './pages/ServicesPage'
+import { PortfolioPage } from './pages/PortfolioPage'
+import { ContactPage } from './pages/ContactPage'
 
 function App() {
   return (
@@ -12,10 +15,10 @@ function App() {
         <main className="flex-1">
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/services" element={<div className="p-8 text-center mt-20"><h1 className="text-3xl font-bold">Services</h1></div>} />
-            <Route path="/portfolio" element={<div className="p-8 text-center mt-20"><h1 className="text-3xl font-bold">Portfolio</h1></div>} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/portfolio" element={<PortfolioPage />} />
             <Route path="/dashboard" element={<DashboardPage />} />
-            <Route path="/contact" element={<div className="p-8 text-center mt-20"><h1 className="text-3xl font-bold">Contact Us</h1></div>} />
+            <Route path="/contact" element={<ContactPage />} />
           </Routes>
         </main>
         <Footer />
