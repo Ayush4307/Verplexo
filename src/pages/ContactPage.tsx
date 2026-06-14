@@ -19,7 +19,7 @@ export function ContactPage() {
             <div className="space-y-6">
               <div className="flex items-center text-zinc-600">
                 <Mail className="text-brand mr-4" size={24} />
-                <span>hello@verplexo.com</span>
+                <span>verplexo@gmail.com</span>
               </div>
               <div className="flex items-center text-zinc-600">
                 <Phone className="text-brand mr-4" size={24} />

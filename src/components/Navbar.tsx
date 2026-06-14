@@ -18,8 +18,9 @@ export function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <Link to="/" className="text-2xl font-bold text-brand tracking-tight">
-              Verplexo<span className="text-zinc-900">.</span>
+            <Link to="/" className="flex items-center gap-2">
+              <img src="/logo.png" alt="Verplexo Logo" className="h-8 object-contain" onError={(e) => { e.currentTarget.style.display = 'none' }} />
+              <span className="text-2xl font-bold text-zinc-900 tracking-tight">VERPLEXO</span>
             </Link>
           </div>
 
