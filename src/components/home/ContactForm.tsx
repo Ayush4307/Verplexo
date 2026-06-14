@@ -36,7 +36,7 @@ export function ContactForm() {
       } else {
         setError('Something went wrong. Please try again.')
       }
-    } catch (err) {
+    } catch {
       setError('Network error. Please check your connection.')
     } finally {
       setIsSubmitting(false)
