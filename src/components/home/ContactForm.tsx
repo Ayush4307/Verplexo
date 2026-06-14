@@ -114,6 +114,20 @@ export function ContactForm() {
               </div>
             </div>
 
+            {error && (
+              <div className="rounded-md bg-red-50 p-4">
+                <p className="text-sm font-medium text-red-800">{error}</p>
+              </div>
+            )}
+            
+            {isSuccess && (
+              <div className="rounded-md bg-green-50 p-4">
+                <p className="text-sm font-medium text-green-800">
+                  Message sent successfully! We will get back to you soon.
+                </p>
+              </div>
+            )}
+
             <div>
               <button type="button" className="w-full inline-flex justify-center py-3 px-6 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-brand hover:bg-brand-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand transition-colors">
                 Submit Request
