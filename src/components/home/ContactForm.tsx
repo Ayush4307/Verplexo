@@ -52,7 +52,7 @@ export function ContactForm() {
           </p>
         </div>
         <div className="bg-white py-8 px-6 shadow-sm rounded-2xl border border-zinc-100 sm:px-10">
-          <form className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 gap-y-6 gap-x-8 sm:grid-cols-2">
               <div>
                 <label htmlFor="first-name" className="block text-sm font-medium text-zinc-700">First name</label>
