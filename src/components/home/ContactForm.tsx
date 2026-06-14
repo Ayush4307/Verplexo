@@ -1,4 +1,12 @@
+import { useState } from 'react'
+
 export function ContactForm() {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    message: ''
+  })
   return (
     <div className="bg-zinc-50 py-24">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
