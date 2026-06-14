@@ -7,6 +7,13 @@ export function ContactForm() {
     email: '',
     message: ''
   })
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    })
+  }
   return (
     <div className="bg-zinc-50 py-24">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
