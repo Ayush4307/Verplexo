@@ -23,15 +23,15 @@ export function AboutSection() {
               </dl>
             </div>
           </div>
-          <div className="mt-12 lg:mt-0 relative">
-            <div className="aspect-w-5 aspect-h-4 rounded-2xl overflow-hidden bg-zinc-100 border border-zinc-200 flex items-center justify-center p-12 relative h-96">
-                <div className="absolute inset-0 bg-gradient-to-tr from-brand/10 to-transparent"></div>
-                <div className="relative z-10 text-center">
-                    <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-lg mx-auto mb-6">
-                        <span className="text-4xl font-bold text-brand">V</span>
-                    </div>
-                    <p className="text-zinc-600 font-medium">Scalable. Reliable. Fast.</p>
-                </div>
+          <div className="mt-12 lg:mt-0 relative rounded-2xl overflow-hidden shadow-xl border border-zinc-200">
+            <img 
+              src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" 
+              alt="Digital workspace with code" 
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 to-transparent flex flex-col justify-end p-8">
+              <p className="text-white font-medium text-lg tracking-wide">Scalable. Reliable. Fast.</p>
+              <p className="text-zinc-300 text-sm mt-1">Delivering excellence in every line of code.</p>
             </div>
           </div>
         </div>
