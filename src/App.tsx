@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Navbar } from './components/Navbar'
 import { Footer } from './components/Footer'
+import { HomePage } from './pages/HomePage'
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
         <Navbar />
         <main className="flex-1">
           <Routes>
-            <Route path="/" element={<div className="p-8 text-center mt-20"><h1 className="text-4xl font-bold text-brand">Verplexo Agency</h1><p className="mt-4 text-zinc-500">Home Page Placeholder</p></div>} />
+            <Route path="/" element={<HomePage />} />
             <Route path="/services" element={<div className="p-8 text-center mt-20"><h1 className="text-3xl font-bold">Services</h1></div>} />
             <Route path="/portfolio" element={<div className="p-8 text-center mt-20"><h1 className="text-3xl font-bold">Portfolio</h1></div>} />
             <Route path="/dashboard" element={<div className="p-8 text-center mt-20"><h1 className="text-3xl font-bold">Client Dashboard</h1></div>} />
