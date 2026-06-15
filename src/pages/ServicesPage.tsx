@@ -1,4 +1,5 @@
 import { ServicesGrid } from '../components/home/ServicesGrid'
+import { ProjectEstimator } from '../components/services/ProjectEstimator'
 import { ArrowLeft } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
@@ -19,6 +20,10 @@ export function ServicesPage() {
           </p>
         </div>
         <ServicesGrid />
+        
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
+          <ProjectEstimator />
+        </div>
       </div>
     </div>
   )
