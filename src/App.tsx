@@ -10,10 +10,12 @@ import { AboutPage } from './pages/AboutPage'
 import { CareersPage } from './pages/CareersPage'
 import { PrivacyPage } from './pages/PrivacyPage'
 import { TermsPage } from './pages/TermsPage'
+import { ScrollToTop } from './utils/ScrollToTop'
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <div className="min-h-screen flex flex-col font-sans text-zinc-900 bg-[#FAFAFA]">
         <Navbar />
         <main className="flex-1">
