@@ -36,7 +36,13 @@ const initialServices = [
 ]
 
 export function DashboardPage() {
+  const [searchQuery, setSearchQuery] = useState('')
   const [services, setServices] = useState(initialServices)
+
+  const filteredServices = services.filter(service => 
+    service.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    service.description.toLowerCase().includes(searchQuery.toLowerCase())
+  )
 
   return (
     <div className="bg-[#FAFAFA] min-h-screen pb-12">
@@ -47,10 +53,10 @@ export function DashboardPage() {
         </Link>
 
         <div className="flex flex-col md:flex-row gap-8">
-          <DashboardSidebar />
+          <DashboardSidebar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
           
           <div className="flex-1">
-            {services.length === 0 ? (
+            {filteredServices.length === 0 ? (
               <div className="bg-white border border-zinc-200 rounded-xl p-12 text-center flex flex-col items-center justify-center h-full min-h-[400px]">
                 <div className="w-16 h-16 bg-zinc-50 rounded-full flex items-center justify-center mb-4">
                   <span className="text-2xl">📁</span>
@@ -62,7 +68,7 @@ export function DashboardPage() {
               </div>
             ) : (
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                {services.map((service, index) => (
+                {filteredServices.map((service, index) => (
                   <ServiceCard key={index} {...service} />
                 ))}
               </div>

@@ -1,6 +1,11 @@
 import { Filter, X, ChevronDown } from 'lucide-react'
 
-export function DashboardSidebar() {
+type DashboardSidebarProps = {
+  searchQuery: string
+  setSearchQuery: (query: string) => void
+}
+
+export function DashboardSidebar({ searchQuery, setSearchQuery }: DashboardSidebarProps) {
   return (
     <div className="w-full md:w-64 flex-shrink-0 bg-white border border-zinc-200 rounded-xl p-5 h-fit shadow-sm">
       <div className="flex items-center justify-between pb-4 border-b border-zinc-100">
@@ -17,6 +22,8 @@ export function DashboardSidebar() {
         <div>
           <input
             type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search services, platforms..."
             className="w-full px-4 py-2 bg-zinc-50 border border-zinc-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent placeholder-zinc-400"
           />
