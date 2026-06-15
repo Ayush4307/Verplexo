@@ -17,10 +17,10 @@ export function Footer() {
           <div>
             <h3 className="font-semibold text-zinc-900 mb-4">Services</h3>
             <ul className="space-y-2 text-sm text-zinc-500">
-              <li>Web Applications</li>
-              <li>Mobile Apps</li>
-              <li>AI Solutions</li>
-              <li>Custom Digital Platforms</li>
+              <li><Link to="/services" className="hover:text-brand transition-colors">Web Applications</Link></li>
+              <li><Link to="/services" className="hover:text-brand transition-colors">Mobile Apps</Link></li>
+              <li><Link to="/services" className="hover:text-brand transition-colors">AI Solutions</Link></li>
+              <li><Link to="/services" className="hover:text-brand transition-colors">Custom Digital Platforms</Link></li>
             </ul>
           </div>
           <div>
