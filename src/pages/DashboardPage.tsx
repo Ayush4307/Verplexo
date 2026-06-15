@@ -37,12 +37,17 @@ const initialServices = [
 
 export function DashboardPage() {
   const [searchQuery, setSearchQuery] = useState('')
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([])
   const [services, setServices] = useState(initialServices)
 
-  const filteredServices = services.filter(service => 
-    service.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    service.description.toLowerCase().includes(searchQuery.toLowerCase())
-  )
+  const filteredServices = services.filter(service => {
+    const matchesSearch = service.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                          service.description.toLowerCase().includes(searchQuery.toLowerCase())
+    
+    const matchesCategory = selectedCategories.length === 0 || selectedCategories.includes(service.category)
+    
+    return matchesSearch && matchesCategory
+  })
 
   return (
     <div className="bg-[#FAFAFA] min-h-screen pb-12">
