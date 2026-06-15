@@ -58,7 +58,12 @@ export function DashboardPage() {
         </Link>
 
         <div className="flex flex-col md:flex-row gap-8">
-          <DashboardSidebar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+          <DashboardSidebar 
+            searchQuery={searchQuery} 
+            setSearchQuery={setSearchQuery}
+            selectedCategories={selectedCategories}
+            setSelectedCategories={setSelectedCategories}
+          />
           
           <div className="flex-1">
             {filteredServices.length === 0 ? (
