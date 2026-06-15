@@ -6,6 +6,10 @@ import { DashboardPage } from './pages/DashboardPage'
 import { ServicesPage } from './pages/ServicesPage'
 import { PortfolioPage } from './pages/PortfolioPage'
 import { ContactPage } from './pages/ContactPage'
+import { AboutPage } from './pages/AboutPage'
+import { CareersPage } from './pages/CareersPage'
+import { PrivacyPage } from './pages/PrivacyPage'
+import { TermsPage } from './pages/TermsPage'
 
 function App() {
   return (
@@ -19,6 +23,10 @@ function App() {
             <Route path="/portfolio" element={<PortfolioPage />} />
             <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/careers" element={<CareersPage />} />
+            <Route path="/privacy" element={<PrivacyPage />} />
+            <Route path="/terms" element={<TermsPage />} />
           </Routes>
         </main>
         <Footer />
