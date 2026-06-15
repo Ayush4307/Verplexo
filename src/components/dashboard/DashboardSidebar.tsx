@@ -3,9 +3,20 @@ import { Filter, X, ChevronDown } from 'lucide-react'
 type DashboardSidebarProps = {
   searchQuery: string
   setSearchQuery: (query: string) => void
+  selectedCategories: string[]
+  setSelectedCategories: (categories: string[]) => void
 }
 
-export function DashboardSidebar({ searchQuery, setSearchQuery }: DashboardSidebarProps) {
+export function DashboardSidebar({ searchQuery, setSearchQuery, selectedCategories, setSelectedCategories }: DashboardSidebarProps) {
+  
+  const handleCategoryToggle = (category: string) => {
+    if (selectedCategories.includes(category)) {
+      setSelectedCategories(selectedCategories.filter(c => c !== category))
+    } else {
+      setSelectedCategories([...selectedCategories, category])
+    }
+  }
+
   return (
     <div className="w-full md:w-64 flex-shrink-0 bg-white border border-zinc-200 rounded-xl p-5 h-fit shadow-sm">
       <div className="flex items-center justify-between pb-4 border-b border-zinc-100">
@@ -38,7 +49,15 @@ export function DashboardSidebar({ searchQuery, setSearchQuery }: DashboardSideb
             {['Web Development', 'Mobile Apps', 'AI & Machine Learning', 'UI/UX Design', 'Cloud Architecture', 'DevOps'].map((category) => (
               <label key={category} className="flex items-center space-x-3 cursor-pointer group">
                 <div className="relative flex items-center justify-center w-4 h-4 border border-zinc-300 rounded bg-white group-hover:border-brand">
-                  <input type="checkbox" className="absolute opacity-0 w-full h-full cursor-pointer" />
+                  <input 
+                    type="checkbox" 
+                    checked={selectedCategories.includes(category)}
+                    onChange={() => handleCategoryToggle(category)}
+                    className="absolute opacity-0 w-full h-full cursor-pointer" 
+                  />
+                  {selectedCategories.includes(category) && (
+                    <div className="w-2 h-2 bg-brand rounded-sm"></div>
+                  )}
                 </div>
                 <span className="text-sm text-zinc-600 group-hover:text-zinc-900">{category}</span>
               </label>
