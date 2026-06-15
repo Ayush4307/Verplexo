@@ -43,9 +43,9 @@ export function Footer() {
         <div className="mt-12 pt-8 border-t border-zinc-100 flex flex-col md:flex-row justify-between items-center text-sm text-zinc-400">
           <p>© {new Date().getFullYear()} Verplexo. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <span className="hover:text-brand cursor-pointer transition-colors">Twitter</span>
-            <span className="hover:text-brand cursor-pointer transition-colors">LinkedIn</span>
-            <span className="hover:text-brand cursor-pointer transition-colors">GitHub</span>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-brand transition-colors">Twitter</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-brand transition-colors">LinkedIn</a>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-brand transition-colors">GitHub</a>
           </div>
         </div>
       </div>
