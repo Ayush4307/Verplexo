@@ -3,8 +3,40 @@ import { Link } from 'react-router-dom'
 import { DashboardSidebar } from '../components/dashboard/DashboardSidebar'
 import { ServiceCard } from '../components/dashboard/ServiceCard'
 
+import { useState } from 'react'
+
+const initialServices = [
+  {
+    title: 'E-Commerce Platform Redesign',
+    category: 'Web Development',
+    budget: '$15k - $25k',
+    timeline: '3 Months',
+    description: 'Complete overhaul of the existing e-commerce platform using Next.js and Stripe.',
+    teamSize: '3 Developers',
+    technologies: ['Next.js', 'React', 'Stripe']
+  },
+  {
+    title: 'Healthcare Mobile App',
+    category: 'Mobile Apps',
+    budget: '$30k - $50k',
+    timeline: '6 Months',
+    description: 'A comprehensive telemedicine mobile app for patient-doctor consultations.',
+    teamSize: '4 Developers',
+    technologies: ['React Native', 'Node.js', 'WebRTC']
+  },
+  {
+    title: 'AI Customer Support Bot',
+    category: 'AI & Machine Learning',
+    budget: '$10k - $15k',
+    timeline: '2 Months',
+    description: 'Intelligent chatbot integrated with OpenAI API to handle tier-1 customer inquiries.',
+    teamSize: '2 Developers',
+    technologies: ['Python', 'OpenAI', 'AWS']
+  }
+]
+
 export function DashboardPage() {
-  const services: any[] = []
+  const [services, setServices] = useState(initialServices)
 
   return (
     <div className="bg-[#FAFAFA] min-h-screen pb-12">
