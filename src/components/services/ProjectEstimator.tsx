@@ -94,6 +94,23 @@ export function ProjectEstimator() {
           ))}
         </div>
       </div>
+
+      <div className="mt-12 pt-8 border-t border-zinc-200">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 bg-zinc-50 rounded-xl p-6 border border-zinc-200">
+          <div>
+            <h3 className="text-zinc-500 font-medium text-sm uppercase tracking-wider mb-1">Estimated Total</h3>
+            <div className="text-4xl font-extrabold text-brand">
+              ${calculateTotal().toLocaleString()}
+            </div>
+            <p className="text-sm text-zinc-500 mt-2">
+              This is a rough estimate. Final pricing depends on project scope.
+            </p>
+          </div>
+          <button className="w-full md:w-auto bg-brand hover:bg-brand-hover text-white px-8 py-4 rounded-xl font-medium shadow-md transition-colors whitespace-nowrap">
+            Request Formal Quote
+          </button>
+        </div>
+      </div>
     </div>
   )
 }
