@@ -26,10 +26,10 @@ export function Footer() {
           <div>
             <h3 className="font-semibold text-zinc-900 mb-4">Company</h3>
             <ul className="space-y-2 text-sm text-zinc-500">
-              <li>About Us</li>
-              <li>Portfolio</li>
-              <li>Careers</li>
-              <li>Contact</li>
+              <li><Link to="/about" className="hover:text-brand transition-colors">About Us</Link></li>
+              <li><Link to="/portfolio" className="hover:text-brand transition-colors">Portfolio</Link></li>
+              <li><Link to="/careers" className="hover:text-brand transition-colors">Careers</Link></li>
+              <li><Link to="/contact" className="hover:text-brand transition-colors">Contact</Link></li>
             </ul>
           </div>
           <div>
