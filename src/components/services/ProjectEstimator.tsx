@@ -30,7 +30,26 @@ export function ProjectEstimator() {
   return (
     <div className="bg-white rounded-2xl shadow-xl border border-zinc-200 p-8 my-12">
       <h2 className="text-2xl font-bold text-zinc-900 mb-6">Interactive Project Estimator</h2>
-      <p className="text-zinc-500">Estimator tool loading...</p>
+      
+      <div className="mb-8">
+        <h3 className="text-lg font-semibold text-zinc-900 mb-4">1. Select Primary Service</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {servicesData.map(service => (
+            <button
+              key={service.id}
+              onClick={() => setSelectedService(service.id)}
+              className={`p-4 text-left border rounded-xl transition-all ${
+                selectedService === service.id 
+                  ? 'border-brand bg-brand/5 ring-1 ring-brand' 
+                  : 'border-zinc-200 hover:border-zinc-300 bg-white'
+              }`}
+            >
+              <div className="font-medium text-zinc-900">{service.name}</div>
+              <div className="text-sm text-zinc-500 mt-1">Starting at ${service.basePrice.toLocaleString()}</div>
+            </button>
+          ))}
+        </div>
+      </div>
     </div>
   )
 }
