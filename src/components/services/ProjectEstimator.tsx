@@ -50,6 +50,50 @@ export function ProjectEstimator() {
           ))}
         </div>
       </div>
+
+      <div className="mb-8">
+        <h3 className="text-lg font-semibold text-zinc-900 mb-4">2. Project Timeline</h3>
+        <div className="flex gap-4">
+          <button
+            onClick={() => setIsRushTimeline(false)}
+            className={`flex-1 p-4 text-center border rounded-xl transition-all ${!isRushTimeline ? 'border-brand bg-brand/5 ring-1 ring-brand' : 'border-zinc-200 hover:border-zinc-300 bg-white'}`}
+          >
+            <div className="font-medium text-zinc-900">Standard</div>
+            <div className="text-sm text-zinc-500">Normal pricing</div>
+          </button>
+          <button
+            onClick={() => setIsRushTimeline(true)}
+            className={`flex-1 p-4 text-center border rounded-xl transition-all ${isRushTimeline ? 'border-brand bg-brand/5 ring-1 ring-brand' : 'border-zinc-200 hover:border-zinc-300 bg-white'}`}
+          >
+            <div className="font-medium text-zinc-900">Rush Priority</div>
+            <div className="text-sm text-zinc-500">+50% premium</div>
+          </button>
+        </div>
+      </div>
+
+      <div className="mb-8">
+        <h3 className="text-lg font-semibold text-zinc-900 mb-4">3. Optional Add-ons</h3>
+        <div className="space-y-3">
+          {addonsData.map(addon => (
+            <label key={addon.id} className="flex items-center p-4 border border-zinc-200 rounded-xl cursor-pointer hover:border-zinc-300 transition-colors">
+              <input
+                type="checkbox"
+                className="w-5 h-5 text-brand rounded border-zinc-300 focus:ring-brand accent-brand"
+                checked={selectedAddons.includes(addon.id)}
+                onChange={(e) => {
+                  if (e.target.checked) {
+                    setSelectedAddons([...selectedAddons, addon.id])
+                  } else {
+                    setSelectedAddons(selectedAddons.filter(id => id !== addon.id))
+                  }
+                }}
+              />
+              <span className="ml-3 font-medium text-zinc-900">{addon.name}</span>
+              <span className="ml-auto text-zinc-500">+${addon.price.toLocaleString()}</span>
+            </label>
+          ))}
+        </div>
+      </div>
     </div>
   )
 }
