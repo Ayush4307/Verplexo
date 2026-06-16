@@ -1,8 +1,3 @@
-import { Layout, Server, Database, Sparkles, Smartphone, ShieldCheck } from 'lucide-react'
-
-export function ServicesGrid() {
-  const services = [
-    {
 import { motion } from 'framer-motion'
 import { staggerContainer, scaleUp } from '../../utils/motion'
 import { Smartphone, MonitorSmartphone, BrainCircuit, Database, Cpu, Cloud } from 'lucide-react'

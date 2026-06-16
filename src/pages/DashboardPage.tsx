@@ -38,7 +38,7 @@ const initialServices = [
 export function DashboardPage() {
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedCategories, setSelectedCategories] = useState<string[]>([])
-  const [services, setServices] = useState(initialServices)
+  const [services] = useState(initialServices)
 
   const filteredServices = services.filter(service => {
     const matchesSearch = service.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
