@@ -1,4 +1,6 @@
 import { Filter, X, ChevronDown } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { slideInFromLeft } from '../../utils/motion'
 
 type DashboardSidebarProps = {
   searchQuery: string
@@ -18,7 +20,12 @@ export function DashboardSidebar({ searchQuery, setSearchQuery, selectedCategori
   }
 
   return (
-    <div className="w-full md:w-64 flex-shrink-0 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl p-5 h-fit shadow-sm transition-colors duration-300">
+    <motion.div 
+      className="w-full md:w-64 flex-shrink-0 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl p-5 h-fit shadow-sm transition-colors duration-300"
+      variants={slideInFromLeft}
+      initial="hidden"
+      animate="visible"
+    >
       <div className="flex items-center justify-between pb-4 border-b border-zinc-100 dark:border-zinc-800">
         <div className="flex items-center space-x-2 text-zinc-900 dark:text-zinc-100 font-medium">
           <Filter size={18} />
