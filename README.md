@@ -34,22 +34,29 @@ Fonts: Google Fonts (Plus Jakarta Sans)
 Project Structure
 text
 
-
 src/
 ├── components/          # Reusable UI components
-│   ├── dashboard/       # Client portal components (Sidebar, Cards)
-│   ├── home/            # Homepage sections (Hero, About, ServicesGrid)
-│   ├── services/        # Logic-heavy components (ProjectEstimator)
+│   ├── dashboard/       # Client portal components (DashboardSidebar, ServiceCard)
+│   ├── home/            # Homepage sections (HeroSection, AboutSection, ServicesGrid, ContactForm)
+│   ├── services/        # Logic-heavy dynamic components (ProjectEstimator)
 │   ├── Footer.tsx       # Global footer
-│   └── Navbar.tsx       # Global navigation
+│   └── Navbar.tsx       # Global navigation (Includes Dark Mode Toggle)
 ├── pages/               # Top-level route components
 │   ├── AboutPage.tsx
+│   ├── CareersPage.tsx
 │   ├── ContactPage.tsx
 │   ├── DashboardPage.tsx
-│   └── ...
-├── utils/               # Helper functions and hooks (ScrollToTop)
-├── App.tsx              # Root component and Router configuration
-├── index.css            # Global Tailwind CSS entry point
+│   ├── HomePage.tsx
+│   ├── PortfolioPage.tsx
+│   ├── PrivacyPage.tsx
+│   ├── ServicesPage.tsx
+│   └── TermsPage.tsx
+├── utils/               # Helper functions, hooks, and configuration
+│   ├── motion.ts        # Framer Motion animation variants (fadeIn, slideIn, scaleUp)
+│   ├── ScrollToTop.tsx  # Router scroll-to-top utility
+│   └── ThemeContext.tsx # Dark mode state management and local storage persistence
+├── App.tsx              # Root component, Router configuration, and ThemeProvider mount
+├── index.css            # Global Tailwind CSS entry point & Dark Mode variable config
 └── main.tsx             # React DOM rendering entry point
 
 Available Scripts
