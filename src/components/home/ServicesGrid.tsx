@@ -38,35 +38,31 @@ export function ServicesGrid() {
     <div className="py-24 bg-zinc-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
+        <div className="text-center mb-16">
           <h2 className="text-base text-brand font-semibold tracking-wide uppercase">Capabilities</h2>
-          <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-zinc-900 sm:text-4xl">
+          <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-zinc-900 dark:text-white sm:text-4xl">
             Everything you need to build the future
           </p>
-          <p className="mt-4 max-w-2xl text-xl text-zinc-500 mx-auto">
+          <p className="mt-4 max-w-2xl text-xl text-zinc-500 dark:text-zinc-400 mx-auto">
             We combine innovation, performance, and clean design to deliver reliable technology solutions.
           </p>
         </div>
 
-        <div className="mt-20">
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((service, index) => (
-              <div key={index} className="pt-6">
-                <div className="flow-root bg-white rounded-lg px-6 pb-8 shadow-sm border border-zinc-100 hover:shadow-md transition-shadow h-full">
-                  <div className="-mt-6">
-                    <div>
-                      <span className="inline-flex items-center justify-center p-3 bg-brand/10 rounded-md shadow-sm">
-                        {service.icon}
-                      </span>
-                    </div>
-                    <h3 className="mt-8 text-lg font-medium text-zinc-900 tracking-tight">{service.title}</h3>
-                    <p className="mt-5 text-base text-zinc-500">
-                      {service.description}
-                    </p>
-                  </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => {
+            const Icon = service.icon
+            return (
+              <div key={index} className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-8 hover:shadow-lg transition-all duration-300 group">
+                <div className="w-12 h-12 bg-brand/10 dark:bg-brand/20 rounded-xl flex items-center justify-center mb-6">
+                  <Icon className="text-brand" size={24} />
                 </div>
+                <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mb-3">{service.title}</h3>
+                <p className="text-zinc-500 dark:text-zinc-400">
+                  {service.description}
+                </p>
               </div>
-            ))}
-          </div>
+            )
+          })}
         </div>
       </div>
     </div>
