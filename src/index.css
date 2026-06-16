@@ -7,8 +7,9 @@
   --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
 }
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 body {
-  background-color: #fafafa;
-  color: #18181b;
+  @apply bg-[#fafafa] text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50 transition-colors duration-300;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
