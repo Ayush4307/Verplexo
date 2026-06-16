@@ -28,11 +28,11 @@ export function ProjectEstimator() {
   }
 
   return (
-    <div className="bg-white rounded-2xl shadow-xl border border-zinc-200 p-8 my-12">
-      <h2 className="text-2xl font-bold text-zinc-900 mb-6">Interactive Project Estimator</h2>
+    <div className="bg-white dark:bg-zinc-900 rounded-2xl shadow-xl border border-zinc-200 dark:border-zinc-800 p-8 my-12 transition-colors duration-300">
+      <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100 mb-6">Interactive Project Estimator</h2>
       
       <div className="mb-8">
-        <h3 className="text-lg font-semibold text-zinc-900 mb-4">1. Select Primary Service</h3>
+        <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100 mb-4">1. Select Primary Service</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {servicesData.map(service => (
             <button
@@ -40,45 +40,45 @@ export function ProjectEstimator() {
               onClick={() => setSelectedService(service.id)}
               className={`p-4 text-left border rounded-xl transition-all ${
                 selectedService === service.id 
-                  ? 'border-brand bg-brand/5 ring-1 ring-brand' 
-                  : 'border-zinc-200 hover:border-zinc-300 bg-white'
+                  ? 'border-brand bg-brand/5 dark:bg-brand/10 ring-1 ring-brand' 
+                  : 'border-zinc-200 dark:border-zinc-700 hover:border-zinc-300 dark:hover:border-zinc-600 bg-white dark:bg-zinc-800'
               }`}
             >
-              <div className="font-medium text-zinc-900">{service.name}</div>
-              <div className="text-sm text-zinc-500 mt-1">Starting at ${service.basePrice.toLocaleString()}</div>
+              <div className="font-medium text-zinc-900 dark:text-zinc-100">{service.name}</div>
+              <div className="text-sm text-zinc-500 dark:text-zinc-400 mt-1">Starting at ${service.basePrice.toLocaleString()}</div>
             </button>
           ))}
         </div>
       </div>
 
       <div className="mb-8">
-        <h3 className="text-lg font-semibold text-zinc-900 mb-4">2. Project Timeline</h3>
+        <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100 mb-4">2. Project Timeline</h3>
         <div className="flex gap-4">
           <button
             onClick={() => setIsRushTimeline(false)}
-            className={`flex-1 p-4 text-center border rounded-xl transition-all ${!isRushTimeline ? 'border-brand bg-brand/5 ring-1 ring-brand' : 'border-zinc-200 hover:border-zinc-300 bg-white'}`}
+            className={`flex-1 p-4 text-center border rounded-xl transition-all ${!isRushTimeline ? 'border-brand bg-brand/5 dark:bg-brand/10 ring-1 ring-brand' : 'border-zinc-200 dark:border-zinc-700 hover:border-zinc-300 dark:hover:border-zinc-600 bg-white dark:bg-zinc-800'}`}
           >
-            <div className="font-medium text-zinc-900">Standard</div>
-            <div className="text-sm text-zinc-500">Normal pricing</div>
+            <div className="font-medium text-zinc-900 dark:text-zinc-100">Standard</div>
+            <div className="text-sm text-zinc-500 dark:text-zinc-400">Normal pricing</div>
           </button>
           <button
             onClick={() => setIsRushTimeline(true)}
-            className={`flex-1 p-4 text-center border rounded-xl transition-all ${isRushTimeline ? 'border-brand bg-brand/5 ring-1 ring-brand' : 'border-zinc-200 hover:border-zinc-300 bg-white'}`}
+            className={`flex-1 p-4 text-center border rounded-xl transition-all ${isRushTimeline ? 'border-brand bg-brand/5 dark:bg-brand/10 ring-1 ring-brand' : 'border-zinc-200 dark:border-zinc-700 hover:border-zinc-300 dark:hover:border-zinc-600 bg-white dark:bg-zinc-800'}`}
           >
-            <div className="font-medium text-zinc-900">Rush Priority</div>
-            <div className="text-sm text-zinc-500">+50% premium</div>
+            <div className="font-medium text-zinc-900 dark:text-zinc-100">Rush Priority</div>
+            <div className="text-sm text-zinc-500 dark:text-zinc-400">+50% premium</div>
           </button>
         </div>
       </div>
 
       <div className="mb-8">
-        <h3 className="text-lg font-semibold text-zinc-900 mb-4">3. Optional Add-ons</h3>
+        <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100 mb-4">3. Optional Add-ons</h3>
         <div className="space-y-3">
           {addonsData.map(addon => (
-            <label key={addon.id} className="flex items-center p-4 border border-zinc-200 rounded-xl cursor-pointer hover:border-zinc-300 transition-colors">
+            <label key={addon.id} className="flex items-center p-4 border border-zinc-200 dark:border-zinc-700 rounded-xl cursor-pointer hover:border-zinc-300 dark:hover:border-zinc-600 transition-colors bg-white dark:bg-zinc-800">
               <input
                 type="checkbox"
-                className="w-5 h-5 text-brand rounded border-zinc-300 focus:ring-brand accent-brand"
+                className="w-5 h-5 text-brand rounded border-zinc-300 dark:border-zinc-600 dark:bg-zinc-900 focus:ring-brand accent-brand"
                 checked={selectedAddons.includes(addon.id)}
                 onChange={(e) => {
                   if (e.target.checked) {
@@ -88,21 +88,21 @@ export function ProjectEstimator() {
                   }
                 }}
               />
-              <span className="ml-3 font-medium text-zinc-900">{addon.name}</span>
-              <span className="ml-auto text-zinc-500">+${addon.price.toLocaleString()}</span>
+              <span className="ml-3 font-medium text-zinc-900 dark:text-zinc-100">{addon.name}</span>
+              <span className="ml-auto text-zinc-500 dark:text-zinc-400">+${addon.price.toLocaleString()}</span>
             </label>
           ))}
         </div>
       </div>
 
-      <div className="mt-12 pt-8 border-t border-zinc-200">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 bg-zinc-50 rounded-xl p-6 border border-zinc-200">
+      <div className="mt-12 pt-8 border-t border-zinc-200 dark:border-zinc-800">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 bg-zinc-50 dark:bg-zinc-950/50 rounded-xl p-6 border border-zinc-200 dark:border-zinc-800">
           <div>
-            <h3 className="text-zinc-500 font-medium text-sm uppercase tracking-wider mb-1">Estimated Total</h3>
+            <h3 className="text-zinc-500 dark:text-zinc-400 font-medium text-sm uppercase tracking-wider mb-1">Estimated Total</h3>
             <div className="text-4xl font-extrabold text-brand">
               ${calculateTotal().toLocaleString()}
             </div>
-            <p className="text-sm text-zinc-500 mt-2">
+            <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-2">
               This is a rough estimate. Final pricing depends on project scope.
             </p>
           </div>
