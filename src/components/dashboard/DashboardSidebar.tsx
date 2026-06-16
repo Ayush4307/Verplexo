@@ -84,6 +84,6 @@ export function DashboardSidebar({ searchQuery, setSearchQuery, selectedCategori
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
