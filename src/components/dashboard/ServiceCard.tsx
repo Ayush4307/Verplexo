@@ -1,4 +1,6 @@
 import { Clock, Code2, Users, CheckCircle } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { fadeIn } from '../../utils/motion'
 
 export type ServiceCardProps = {
   title: string
@@ -12,7 +14,12 @@ export type ServiceCardProps = {
 
 export function ServiceCard({ title, category, budget, timeline, description, teamSize, technologies }: ServiceCardProps) {
   return (
-    <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl p-6 hover:shadow-md transition-all duration-300 flex flex-col h-full cursor-pointer group">
+    <motion.div 
+      className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl p-6 hover:shadow-md transition-all duration-300 flex flex-col h-full cursor-pointer group"
+      variants={fadeIn}
+      initial="hidden"
+      animate="visible"
+    >
       <div className="flex justify-between items-start mb-4">
         <div>
           <div className="flex items-center space-x-2 mb-1">
@@ -58,6 +65,6 @@ export function ServiceCard({ title, category, budget, timeline, description, te
           More Details
         </button>
       </div>
-    </div>
+    </motion.div>
   )
 }
