@@ -11,12 +11,14 @@ import { CareersPage } from './pages/CareersPage'
 import { PrivacyPage } from './pages/PrivacyPage'
 import { TermsPage } from './pages/TermsPage'
 import { ScrollToTop } from './utils/ScrollToTop'
+import { ThemeProvider } from './utils/ThemeContext'
 
 function App() {
   return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <div className="min-h-screen flex flex-col font-sans text-zinc-900 bg-[#FAFAFA]">
+    <ThemeProvider>
+      <BrowserRouter>
+        <ScrollToTop />
+        <div className="min-h-screen flex flex-col font-sans transition-colors duration-300">
         <Navbar />
         <main className="flex-1">
           <Routes>
@@ -32,8 +34,9 @@ function App() {
           </Routes>
         </main>
         <Footer />
-      </div>
-    </BrowserRouter>
+        </div>
+      </BrowserRouter>
+    </ThemeProvider>
   )
 }
 
