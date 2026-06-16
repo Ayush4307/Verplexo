@@ -1,75 +1,61 @@
-# Verplexo - React + TypeScript + Vite
+Verplexo
 
-Verplexo is a full-stack software application built using React, TypeScript, and Vite.
+Verplexo is a full-stack React web application designed for a software development agency. It provides a public-facing corporate website alongside an interactive client portal and dynamic project estimation tools.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Table of Contents
 
-Currently, two official plugins are available:
+Architecture Overview
+Core Features
+Technology Stack
+Installation & Setup
+Project Structure
+Available Scripts
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Architecture Overview
 
-## React Compiler
+The application is a Single Page Application (SPA) built on React 18 and Vite. State management is handled natively via React Hooks (useState, useEffect), and client-side routing is managed via react-router-dom. The UI is constructed using modular, reusable functional components styled with Tailwind CSS utility classes.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performance. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Core Features
 
-## Expanding the ESLint configuration
+Interactive Project Estimator: A dynamic calculation engine that processes base service costs, timeline modifiers (e.g., rush fees), and optional add-ons to generate real-time budget estimates.
+Client Dashboard Portal: A state-driven interface that filters active project datasets using multi-parameter queries (string matching and category array inclusion).
+Automated Routing Behaviors: Implements a custom ScrollToTop hook injected at the Router context level to manually manage window scroll positioning during path mutations.
+Form Handling: Controlled components for lead capture and contact requests, complete with mock API submission states and user feedback UI.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Technology Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Core: React 18, TypeScript
+Build System: Vite
+Routing: React Router v6
+Styling: Tailwind CSS (v4)
+Icons: Lucide React
+Fonts: Google Fonts (Plus Jakarta Sans)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Project Structure
+text
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+src/
+├── components/          # Reusable UI components
+│   ├── dashboard/       # Client portal components (Sidebar, Cards)
+│   ├── home/            # Homepage sections (Hero, About, ServicesGrid)
+│   ├── services/        # Logic-heavy components (ProjectEstimator)
+│   ├── Footer.tsx       # Global footer
+│   └── Navbar.tsx       # Global navigation
+├── pages/               # Top-level route components
+│   ├── AboutPage.tsx
+│   ├── ContactPage.tsx
+│   ├── DashboardPage.tsx
+│   └── ...
+├── utils/               # Helper functions and hooks (ScrollToTop)
+├── App.tsx              # Root component and Router configuration
+├── index.css            # Global Tailwind CSS entry point
+└── main.tsx             # React DOM rendering entry point
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Available Scripts
+In the project directory, you can run:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+npm run dev: Starts the Vite development server.
+npm run build: Compiles the TypeScript code and bundles the application for production.
+npm run preview: Bootstraps a local static web server that serves the production bundle.
+npm run lint: Runs ESLint to statically analyze the codebase for errors.
