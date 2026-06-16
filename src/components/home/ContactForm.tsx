@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { motion } from 'framer-motion'
+import { fadeIn } from '../../utils/motion'
 
 export function ContactForm() {
   const [formData, setFormData] = useState({
@@ -43,15 +45,21 @@ export function ContactForm() {
     }
   }
   return (
-    <div className="bg-zinc-50 py-24">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="bg-zinc-50 dark:bg-zinc-950 py-24">
+      <motion.div 
+        className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8"
+        variants={fadeIn}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+      >
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-extrabold text-zinc-900 sm:text-4xl">Ready to start your project?</h2>
-          <p className="mt-4 text-lg text-zinc-500">
+          <h2 className="text-3xl font-extrabold text-zinc-900 dark:text-white sm:text-4xl">Ready to start your project?</h2>
+          <p className="mt-4 text-lg text-zinc-500 dark:text-zinc-400">
             Tell us about your requirements and we'll get back to you with a proposal within 24 hours.
           </p>
         </div>
-        <div className="bg-white py-8 px-6 shadow-sm rounded-2xl border border-zinc-100 sm:px-10">
+        <div className="bg-white dark:bg-zinc-900 py-8 px-6 shadow-sm rounded-2xl border border-zinc-100 dark:border-zinc-800 sm:px-10">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 gap-y-6 gap-x-8 sm:grid-cols-2">
               <div>
@@ -139,7 +147,7 @@ export function ContactForm() {
             </div>
           </form>
         </div>
-      </div>
+      </motion.div>
     </div>
   )
 }
