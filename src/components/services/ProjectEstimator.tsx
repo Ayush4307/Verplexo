@@ -1,34 +1,54 @@
 import { useState } from 'react'
-
-const servicesData = [
-  { id: 'web', name: 'Web Application', basePrice: 15000 },
-  { id: 'mobile', name: 'Mobile App', basePrice: 25000 },
-  { id: 'ai', name: 'AI Integration', basePrice: 10000 },
-  { id: 'custom', name: 'Custom Platform', basePrice: 35000 },
-]
-
-const addonsData = [
-  { id: 'seo', name: 'SEO Optimization', price: 2000 },
-  { id: 'auth', name: 'User Authentication', price: 3500 },
-  { id: 'analytics', name: 'Advanced Analytics', price: 1500 },
-]
+import { motion } from 'framer-motion'
+import { scaleUp } from '../../utils/motion'
 
 export function ProjectEstimator() {
-  const [selectedService, setSelectedService] = useState('web')
+  const [selectedService, setSelectedService] = useState<string | null>(null)
   const [isRushTimeline, setIsRushTimeline] = useState(false)
   const [selectedAddons, setSelectedAddons] = useState<string[]>([])
 
+  const servicesData = [
+    { id: 'web', name: 'Web Application', basePrice: 15000 },
+    { id: 'mobile', name: 'Mobile App', basePrice: 25000 },
+    { id: 'ai', name: 'AI Integration', basePrice: 10000 },
+    { id: 'custom', name: 'Custom Platform', basePrice: 35000 },
+  ]
+
+  const addonsData = [
+    { id: 'auth', name: 'Advanced Authentication (SSO, MFA)', price: 2500 },
+    { id: 'payments', name: 'Payment Gateway Integration', price: 3000 },
+    { id: 'admin', name: 'Custom Admin Dashboard', price: 5000 },
+    { id: 'analytics', name: 'Advanced Analytics Tracking', price: 2000 },
+  ]
+
   const calculateTotal = () => {
-    let total = servicesData.find(s => s.id === selectedService)?.basePrice || 0
-    if (isRushTimeline) total *= 1.5 // 50% rush fee
-    selectedAddons.forEach(addonId => {
-      total += addonsData.find(a => a.id === addonId)?.price || 0
+    let total = 0
+    if (selectedService) {
+      const service = servicesData.find(s => s.id === selectedService)
+      if (service) total += service.basePrice
+    }
+    
+    addonsData.forEach(addon => {
+      if (selectedAddons.includes(addon.id)) {
+        total += addon.price
+      }
     })
+
+    if (isRushTimeline) {
+      total *= 1.5 // 50% premium for rush
+    }
+
     return total
   }
 
   return (
-    <div className="bg-white dark:bg-zinc-900 rounded-2xl shadow-xl border border-zinc-200 dark:border-zinc-800 p-8 my-12 transition-colors duration-300">
+    <motion.div 
+      className="bg-white dark:bg-zinc-900 rounded-2xl shadow-xl border border-zinc-200 dark:border-zinc-800 p-8 my-12 transition-colors duration-300"
+      variants={scaleUp}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-50px" }}
+    >
       <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100 mb-6">Interactive Project Estimator</h2>
       
       <div className="mb-8">
@@ -114,6 +134,6 @@ export function ProjectEstimator() {
           </button>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
