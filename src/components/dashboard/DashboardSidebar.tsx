@@ -18,13 +18,13 @@ export function DashboardSidebar({ searchQuery, setSearchQuery, selectedCategori
   }
 
   return (
-    <div className="w-full md:w-64 flex-shrink-0 bg-white border border-zinc-200 rounded-xl p-5 h-fit shadow-sm">
-      <div className="flex items-center justify-between pb-4 border-b border-zinc-100">
-        <div className="flex items-center space-x-2 text-zinc-900 font-medium">
+    <div className="w-full md:w-64 flex-shrink-0 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl p-5 h-fit shadow-sm transition-colors duration-300">
+      <div className="flex items-center justify-between pb-4 border-b border-zinc-100 dark:border-zinc-800">
+        <div className="flex items-center space-x-2 text-zinc-900 dark:text-zinc-100 font-medium">
           <Filter size={18} />
           <span>Filters</span>
         </div>
-        <button className="text-zinc-400 hover:text-zinc-600">
+        <button className="text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300">
           <X size={18} />
         </button>
       </div>
@@ -36,19 +36,19 @@ export function DashboardSidebar({ searchQuery, setSearchQuery, selectedCategori
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search services, platforms..."
-            className="w-full px-4 py-2 bg-zinc-50 border border-zinc-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent placeholder-zinc-400"
+            className="w-full px-4 py-2 bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-lg text-sm text-zinc-900 dark:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent placeholder-zinc-400 transition-colors duration-300"
           />
         </div>
 
         <div>
           <div className="flex items-center justify-between cursor-pointer mb-3">
-            <span className="font-medium text-sm text-zinc-900">Service Category</span>
+            <span className="font-medium text-sm text-zinc-900 dark:text-zinc-100">Service Category</span>
             <ChevronDown size={16} className="text-zinc-400" />
           </div>
           <div className="space-y-2">
             {['Web Development', 'Mobile Apps', 'AI & Machine Learning', 'UI/UX Design', 'Cloud Architecture', 'DevOps'].map((category) => (
               <label key={category} className="flex items-center space-x-3 cursor-pointer group">
-                <div className="relative flex items-center justify-center w-4 h-4 border border-zinc-300 rounded bg-white group-hover:border-brand">
+                <div className="relative flex items-center justify-center w-4 h-4 border border-zinc-300 dark:border-zinc-700 rounded bg-white dark:bg-zinc-900 group-hover:border-brand transition-colors">
                   <input 
                     type="checkbox" 
                     checked={selectedCategories.includes(category)}
@@ -59,7 +59,7 @@ export function DashboardSidebar({ searchQuery, setSearchQuery, selectedCategori
                     <div className="w-2 h-2 bg-brand rounded-sm"></div>
                   )}
                 </div>
-                <span className="text-sm text-zinc-600 group-hover:text-zinc-900">{category}</span>
+                <span className="text-sm text-zinc-600 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-200">{category}</span>
               </label>
             ))}
           </div>
