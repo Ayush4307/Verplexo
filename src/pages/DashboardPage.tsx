@@ -50,9 +50,9 @@ export function DashboardPage() {
   })
 
   return (
-    <div className="bg-[#FAFAFA] min-h-screen pb-12">
+    <div className="bg-[#FAFAFA] dark:bg-zinc-950 min-h-screen pb-12 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
-        <Link to="/" className="inline-flex items-center text-sm font-medium text-zinc-500 hover:text-zinc-900 mb-8 transition-colors">
+        <Link to="/" className="inline-flex items-center text-sm font-medium text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 mb-8 transition-colors">
           <ArrowLeft size={16} className="mr-2" />
           Back to Home
         </Link>
@@ -67,12 +67,12 @@ export function DashboardPage() {
           
           <div className="flex-1">
             {filteredServices.length === 0 ? (
-              <div className="bg-white border border-zinc-200 rounded-xl p-12 text-center flex flex-col items-center justify-center h-full min-h-[400px]">
-                <div className="w-16 h-16 bg-zinc-50 rounded-full flex items-center justify-center mb-4">
+              <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl p-12 text-center flex flex-col items-center justify-center h-full min-h-[400px] transition-colors duration-300">
+                <div className="w-16 h-16 bg-zinc-50 dark:bg-zinc-800 rounded-full flex items-center justify-center mb-4 transition-colors duration-300">
                   <span className="text-2xl">📁</span>
                 </div>
-                <h3 className="text-lg font-medium text-zinc-900 mb-2">No active projects</h3>
-                <p className="text-zinc-500 max-w-sm mx-auto">
+                <h3 className="text-lg font-medium text-zinc-900 dark:text-zinc-100 mb-2">No active projects</h3>
+                <p className="text-zinc-500 dark:text-zinc-400 max-w-sm mx-auto">
                   You don't have any active projects yet. When you request a service, it will appear here.
                 </p>
               </div>
