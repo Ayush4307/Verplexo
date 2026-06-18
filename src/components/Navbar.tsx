@@ -22,7 +22,7 @@ export function Navbar() {
           <div className="flex-shrink-0 flex items-center">
             <Link to="/" className="flex items-center gap-2">
               <img src="/logo.png" alt="Verplexo Logo" className="h-8 object-contain" onError={(e) => { e.currentTarget.style.display = 'none' }} />
-              <span className="text-2xl font-bold text-zinc-900 tracking-tight">VERPLEXO</span>
+              <span className="text-2xl font-bold text-zinc-900 dark:text-zinc-100 tracking-tight">VERPLEXO</span>
             </Link>
           </div>
 
@@ -76,14 +76,14 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-white border-b border-zinc-200">
+        <div className="md:hidden bg-white dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800 transition-colors duration-300">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {links.map((link) => (
               <Link
                 key={link.name}
                 to={link.path}
                 onClick={() => setIsOpen(false)}
-                className="block px-3 py-2 rounded-md text-base font-medium text-zinc-700 hover:text-brand hover:bg-zinc-50"
+                className="block px-3 py-2 rounded-md text-base font-medium text-zinc-700 dark:text-zinc-300 hover:text-brand hover:bg-zinc-50 dark:hover:bg-zinc-900"
               >
                 {link.name}
               </Link>
@@ -91,7 +91,7 @@ export function Navbar() {
             <Link
               to="/contact"
               onClick={() => setIsOpen(false)}
-              className="block px-3 py-2 rounded-md text-base font-medium text-brand hover:bg-zinc-50"
+              className="block px-3 py-2 rounded-md text-base font-medium text-brand hover:bg-zinc-50 dark:hover:bg-zinc-900"
             >
               Get in Touch
             </Link>
