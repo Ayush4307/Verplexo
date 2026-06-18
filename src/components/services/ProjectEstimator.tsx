@@ -1,8 +1,10 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { scaleUp } from '../../utils/motion'
 
 export function ProjectEstimator() {
+  const navigate = useNavigate()
   const [selectedService, setSelectedService] = useState<string | null>(null)
   const [isRushTimeline, setIsRushTimeline] = useState(false)
   const [selectedAddons, setSelectedAddons] = useState<string[]>([])
@@ -127,7 +129,7 @@ export function ProjectEstimator() {
             </p>
           </div>
           <button 
-            onClick={() => window.location.href = '/contact'}
+            onClick={() => navigate('/contact')}
             className="w-full md:w-auto bg-brand hover:bg-brand-hover text-white px-8 py-4 rounded-xl font-medium shadow-md transition-colors whitespace-nowrap"
           >
             Request Formal Quote
