@@ -12,6 +12,7 @@ import { PrivacyPage } from './pages/PrivacyPage'
 import { TermsPage } from './pages/TermsPage'
 import { ScrollToTop } from './utils/ScrollToTop'
 import { ThemeProvider } from './utils/ThemeContext'
+import { NotFoundPage } from './pages/NotFoundPage'
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
             <Route path="/careers" element={<CareersPage />} />
             <Route path="/privacy" element={<PrivacyPage />} />
             <Route path="/terms" element={<TermsPage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>
         <Footer />
