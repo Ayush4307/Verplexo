@@ -1,8 +1,3 @@
-/**
- * Contact form validation utilities.
- * Pure functions — no dependencies, no side effects.
- */
-
 export type ValidationErrors = {
   firstName?: string
   lastName?: string
