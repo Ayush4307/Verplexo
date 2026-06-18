@@ -4,6 +4,26 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Security: Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="
+      default-src 'self';
+      script-src 'self';
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+      font-src 'self' https://fonts.gstatic.com;
+      img-src 'self' https://images.unsplash.com data:;
+      connect-src 'self' https://formspree.io;
+      frame-src 'none';
+      object-src 'none';
+      base-uri 'self';
+    " />
+
+    <!-- Security: Prevent clickjacking (blocks iframe embedding) -->
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+
+    <!-- Security: Control what info is sent in the Referer header -->
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
     <meta
       name="description"
       content="Verplexo builds premium software products, websites, and systems for startups, established companies, and digital creators."
