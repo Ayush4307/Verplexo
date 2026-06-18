@@ -110,7 +110,7 @@ export function ContactForm() {
           <form onSubmit={handleSubmit} className="space-y-6" noValidate>
 
             {/* Honeypot — invisible to humans, bots auto-fill it */}
-            <div aria-hidden="true" className="absolute -left-[9999px] -top-[9999px]">
+            <div aria-hidden="true" className="absolute left-[-9999px] top-[-9999px]">
               <label htmlFor="website">Website</label>
               <input
                 type="text"
