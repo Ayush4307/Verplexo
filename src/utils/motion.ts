@@ -9,6 +9,25 @@ export const fadeIn: Variants = {
   }
 }
 
+export const staggerContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15
+    }
+  }
+}
+
+export const slideInFromLeft: Variants = {
+  hidden: { opacity: 0, x: -50 },
+  visible: { 
+    opacity: 1, 
+    x: 0,
+    transition: { duration: 0.6, ease: 'easeOut' }
+  }
+}
+
 export const scaleUp: Variants = {
   hidden: { opacity: 0, scale: 0.95 },
   visible: { 
