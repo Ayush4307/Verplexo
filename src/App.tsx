@@ -13,12 +13,15 @@ import { TermsPage } from './pages/TermsPage'
 import { ScrollToTop } from './utils/ScrollToTop'
 import { ThemeProvider } from './utils/ThemeContext'
 import { NotFoundPage } from './pages/NotFoundPage'
+import { PricingPage } from './pages/PricingPage'
+import { ScrollProgressBar } from './components/ScrollProgressBar'
 
 function App() {
   return (
     <ThemeProvider>
       <BrowserRouter>
         <ScrollToTop />
+        <ScrollProgressBar />
         <div className="min-h-screen flex flex-col font-sans transition-colors duration-300">
         <Navbar />
         <main className="flex-1">
@@ -32,6 +35,7 @@ function App() {
             <Route path="/careers" element={<CareersPage />} />
             <Route path="/privacy" element={<PrivacyPage />} />
             <Route path="/terms" element={<TermsPage />} />
+            <Route path="/pricing" element={<PricingPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>
