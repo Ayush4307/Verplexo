@@ -1,9 +1,14 @@
 import { Link } from 'react-router-dom'
 import { ArrowLeft, Search } from 'lucide-react'
+import { Seo } from '../components/Seo'
 
 export function NotFoundPage() {
   return (
     <div className="bg-white dark:bg-zinc-950 min-h-[70vh] flex items-center justify-center transition-colors duration-300">
+      <Seo
+        title="404 — Page Not Found"
+        description="The page you're looking for doesn't exist. Head back to Verplexo's homepage to find what you need."
+      />
       <div className="text-center px-4">
         <div className="w-20 h-20 bg-brand/10 dark:bg-brand/20 rounded-full flex items-center justify-center mx-auto mb-8">
           <Search size={36} className="text-brand" />

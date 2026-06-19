@@ -1,9 +1,15 @@
 import { ArrowLeft } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { Seo } from '../components/Seo'
 
 export function CareersPage() {
   return (
     <div className="bg-white min-h-screen">
+      <Seo
+        title="Careers"
+        description="Join the Verplexo team. We're looking for talented engineers, designers, and builders who want to craft premium digital products."
+        canonical="/careers"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
         <Link to="/" className="inline-flex items-center text-sm font-medium text-zinc-500 hover:text-zinc-900 transition-colors">
           <ArrowLeft size={16} className="mr-2" />

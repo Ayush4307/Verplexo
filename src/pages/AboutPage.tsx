@@ -1,9 +1,15 @@
 import { ArrowLeft } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { Seo } from '../components/Seo'
 
 export function AboutPage() {
   return (
     <div className="bg-white min-h-screen">
+      <Seo
+        title="About Us"
+        description="Learn about Verplexo — a modern full-stack software development company building premium digital products for ambitious teams and startups."
+        canonical="/about"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
         <Link to="/" className="inline-flex items-center text-sm font-medium text-zinc-500 hover:text-zinc-900 transition-colors">
           <ArrowLeft size={16} className="mr-2" />
