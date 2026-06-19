@@ -1,9 +1,11 @@
-import { motion } from 'framer-motion'
 import { HeroSection } from '../components/home/HeroSection'
-import { AboutSection } from '../components/home/AboutSection'
+import { TrustBar } from '../components/home/TrustBar'
+import { StatsStrip } from '../components/home/StatsStrip'
 import { ServicesGrid } from '../components/home/ServicesGrid'
-import { ContactForm } from '../components/home/ContactForm'
-import { fadeIn } from '../utils/motion'
+import { HowItWorks } from '../components/home/HowItWorks'
+import { TestimonialsSection } from '../components/home/TestimonialsSection'
+import { FaqSection } from '../components/home/FaqSection'
+import { CtaBanner } from '../components/home/CtaBanner'
 import { Seo } from '../components/Seo'
 
 export function HomePage() {
@@ -14,17 +16,14 @@ export function HomePage() {
         description="Verplexo builds scalable web applications, AI-powered solutions, and custom digital platforms for startups and creators."
         canonical="/"
       />
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={fadeIn}
-      >
-        <HeroSection />
-      </motion.div>
-      <AboutSection />
+      <HeroSection />
+      <TrustBar />
+      <StatsStrip />
       <ServicesGrid />
-      <ContactForm />
+      <HowItWorks />
+      <TestimonialsSection />
+      <FaqSection />
+      <CtaBanner />
     </div>
   )
 }
