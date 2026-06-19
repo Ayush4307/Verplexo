@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, Sun, Moon } from 'lucide-react'
 import { useState } from 'react'
 import { useTheme } from '../utils/ThemeContext'
@@ -6,13 +6,18 @@ import { useTheme } from '../utils/ThemeContext'
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const { theme, toggleTheme } = useTheme()
+  const { pathname } = useLocation()
 
   const links = [
     { name: 'Home', path: '/' },
     { name: 'Services', path: '/services' },
     { name: 'Portfolio', path: '/portfolio' },
+    { name: 'Pricing', path: '/pricing' },
     { name: 'Client Portal', path: '/dashboard' },
   ]
+
+  const isActive = (path: string) =>
+    path === '/' ? pathname === '/' : pathname.startsWith(path)
 
   return (
     <nav className="border-b border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 sticky top-0 z-50 transition-colors duration-300">
@@ -32,7 +37,11 @@ export function Navbar() {
               <Link
                 key={link.name}
                 to={link.path}
-                className="text-zinc-600 hover:text-brand font-medium text-sm transition-colors"
+                className={`font-medium text-sm transition-colors relative pb-0.5 ${
+                  isActive(link.path)
+                    ? 'text-brand border-b-2 border-brand'
+                    : 'text-zinc-600 dark:text-zinc-400 hover:text-brand'
+                }`}
               >
                 {link.name}
               </Link>
@@ -41,7 +50,7 @@ export function Navbar() {
 
           {/* Desktop Button & Theme Toggle */}
           <div className="hidden md:flex items-center space-x-6">
-            <button 
+            <button
               onClick={toggleTheme}
               className="text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
               aria-label="Toggle theme"
@@ -58,7 +67,7 @@ export function Navbar() {
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center space-x-4">
-            <button 
+            <button
               onClick={toggleTheme}
               className="text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
             >
@@ -83,7 +92,11 @@ export function Navbar() {
                 key={link.name}
                 to={link.path}
                 onClick={() => setIsOpen(false)}
-                className="block px-3 py-2 rounded-md text-base font-medium text-zinc-700 dark:text-zinc-300 hover:text-brand hover:bg-zinc-50 dark:hover:bg-zinc-900"
+                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
+                  isActive(link.path)
+                    ? 'text-brand bg-brand/5 dark:bg-brand/10'
+                    : 'text-zinc-700 dark:text-zinc-300 hover:text-brand hover:bg-zinc-50 dark:hover:bg-zinc-900'
+                }`}
               >
                 {link.name}
               </Link>
