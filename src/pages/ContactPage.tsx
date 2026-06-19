@@ -1,10 +1,16 @@
 import { ArrowLeft, Mail, MapPin, Phone } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { ContactForm } from '../components/home/ContactForm'
+import { Seo } from '../components/Seo'
 
 export function ContactPage() {
   return (
     <div className="bg-white dark:bg-zinc-950 min-h-screen transition-colors duration-300">
+      <Seo
+        title="Get in Touch"
+        description="Contact Verplexo to start your project. We respond within 24 hours with a detailed proposal tailored to your requirements."
+        canonical="/contact"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
         <Link to="/" className="inline-flex items-center text-sm font-medium text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors">
           <ArrowLeft size={16} className="mr-2" />

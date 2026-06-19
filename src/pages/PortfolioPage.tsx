@@ -1,5 +1,6 @@
 import { ArrowLeft, ExternalLink } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { Seo } from '../components/Seo'
 
 export function PortfolioPage() {
   const projects = [
@@ -11,6 +12,11 @@ export function PortfolioPage() {
 
   return (
     <div className="bg-white dark:bg-zinc-950 min-h-screen transition-colors duration-300">
+      <Seo
+        title="Recent Work"
+        description="Explore scalable solutions Verplexo has delivered — from fintech dashboards and mobile apps to AI tools and creator marketplaces."
+        canonical="/portfolio"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
         <Link to="/" className="inline-flex items-center text-sm font-medium text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors">
           <ArrowLeft size={16} className="mr-2" />
