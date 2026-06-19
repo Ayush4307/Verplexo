@@ -4,6 +4,7 @@
   --color-brand: #4F46E5;
   --color-brand-hover: #4338CA;
   --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --animate-marquee: marquee 28s linear infinite;
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -11,4 +12,9 @@
 body {
   @apply bg-[#fafafa] text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50 transition-colors duration-300;
   font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
 }
