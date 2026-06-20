@@ -61,9 +61,9 @@ export function Footer() {
             &copy; {new Date().getFullYear()} Verplexo. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0 text-sm text-zinc-400 dark:text-zinc-500">
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-brand transition-colors">Twitter</a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-brand transition-colors">LinkedIn</a>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-brand transition-colors">GitHub</a>
+            <a href="https://x.com/verplexo" target="_blank" rel="noopener noreferrer" className="hover:text-brand transition-colors">Twitter / X</a>
+            <a href="https://linkedin.com/company/verplexo" target="_blank" rel="noopener noreferrer" className="hover:text-brand transition-colors">LinkedIn</a>
+            <a href="https://github.com/Ayush4307" target="_blank" rel="noopener noreferrer" className="hover:text-brand transition-colors">GitHub</a>
           </div>
         </div>
       </div>
