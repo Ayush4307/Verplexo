@@ -29,11 +29,11 @@ export function ContactPage() {
               </div>
               <div className="flex items-center text-zinc-600 dark:text-zinc-400">
                 <Phone className="text-brand mr-4" size={24} />
-                <span>+1 (555) 123-4567</span>
+                <span>+91 98765 43210</span>
               </div>
               <div className="flex items-center text-zinc-600 dark:text-zinc-400">
                 <MapPin className="text-brand mr-4" size={24} />
-                <span>123 Innovation Drive<br/>Tech City, TC 90210</span>
+                <span>India · Remote Worldwide</span>
               </div>
             </div>
           </div>
