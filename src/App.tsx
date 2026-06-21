@@ -15,6 +15,8 @@ const ServicesPage  = lazy(() => import('./pages/ServicesPage').then(m => ({ def
 const PortfolioPage = lazy(() => import('./pages/PortfolioPage').then(m => ({ default: m.PortfolioPage })))
 const DashboardPage = lazy(() => import('./pages/DashboardPage').then(m => ({ default: m.DashboardPage })))
 const ContactPage   = lazy(() => import('./pages/ContactPage').then(m => ({ default: m.ContactPage })))
+const BlogPage      = lazy(() => import('./pages/BlogPage').then(m => ({ default: m.BlogPage })))
+const BlogPostPage  = lazy(() => import('./pages/BlogPostPage').then(m => ({ default: m.BlogPostPage })))
 const AboutPage     = lazy(() => import('./pages/AboutPage').then(m => ({ default: m.AboutPage })))
 const CareersPage   = lazy(() => import('./pages/CareersPage').then(m => ({ default: m.CareersPage })))
 const PrivacyPage   = lazy(() => import('./pages/PrivacyPage').then(m => ({ default: m.PrivacyPage })))
@@ -39,6 +41,8 @@ function AnimatedRoutes() {
             <Route path="/services"  element={<ServicesPage />} />
             <Route path="/portfolio" element={<PortfolioPage />} />
             <Route path="/dashboard" element={<DashboardPage />} />
+            <Route path="/blog"      element={<BlogPage />} />
+            <Route path="/blog/:slug" element={<BlogPostPage />} />
             <Route path="/contact"   element={<ContactPage />} />
             <Route path="/about"     element={<AboutPage />} />
             <Route path="/careers"   element={<CareersPage />} />

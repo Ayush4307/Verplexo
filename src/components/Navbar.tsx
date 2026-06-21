@@ -12,6 +12,7 @@ export function Navbar() {
     { name: 'Home', path: '/' },
     { name: 'Services', path: '/services' },
     { name: 'Portfolio', path: '/portfolio' },
+    { name: 'Blog', path: '/blog' },
     { name: 'Pricing', path: '/pricing' },
     { name: 'Start a Project', path: '/dashboard' },
   ]

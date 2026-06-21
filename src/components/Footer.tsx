@@ -40,6 +40,7 @@ export function Footer() {
             <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 tracking-wider uppercase">Company</h3>
             <ul className="mt-4 space-y-2 text-sm text-zinc-500 dark:text-zinc-400">
               <li><Link to="/about" className="hover:text-brand transition-colors">About Us</Link></li>
+              <li><Link to="/blog" className="hover:text-brand transition-colors">Blog</Link></li>
               <li><Link to="/portfolio" className="hover:text-brand transition-colors">Portfolio</Link></li>
               <li><Link to="/pricing" className="hover:text-brand transition-colors">Pricing</Link></li>
               <li><Link to="/careers" className="hover:text-brand transition-colors">Careers</Link></li>
