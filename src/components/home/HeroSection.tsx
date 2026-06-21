@@ -26,10 +26,10 @@ export function HeroSection() {
                 </div>
                 <div className="mt-3 sm:mt-0 sm:ml-3">
                   <Link
-                    to="/dashboard"
+                    to="/portfolio"
                     className="w-full flex items-center justify-center px-8 py-3 border border-zinc-200 dark:border-zinc-700 text-base font-medium rounded-full text-brand bg-white dark:bg-zinc-900 hover:bg-zinc-50 dark:hover:bg-zinc-800 md:py-4 md:text-lg md:px-10 transition-colors"
                   >
-                    Client Portal <ArrowRight className="ml-2" size={20} />
+                    See Our Work <ArrowRight className="ml-2" size={20} />
                   </Link>
                 </div>
               </div>
