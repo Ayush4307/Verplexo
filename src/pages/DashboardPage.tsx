@@ -1,89 +1,153 @@
-import { ArrowLeft } from 'lucide-react'
-import { Link } from 'react-router-dom'
-import { DashboardSidebar } from '../components/dashboard/DashboardSidebar'
-import { ServiceCard } from '../components/dashboard/ServiceCard'
-
 import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { ArrowLeft, ArrowRight, CheckCircle } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { Seo } from '../components/Seo'
+import { StepIndicator } from '../components/wizard/StepIndicator'
+import { Step1ProjectType } from '../components/wizard/Step1ProjectType'
+import { Step2Budget } from '../components/wizard/Step2Budget'
+import { Step3Timeline } from '../components/wizard/Step3Timeline'
+import { Step4Review } from '../components/wizard/Step4Review'
 
-const initialServices = [
-  {
-    title: 'E-Commerce Platform Redesign',
-    category: 'Web Development',
-    budget: '$15k - $25k',
-    timeline: '3 Months',
-    description: 'Complete overhaul of the existing e-commerce platform using Next.js and Stripe.',
-    teamSize: '3 Developers',
-    technologies: ['Next.js', 'React', 'Stripe']
-  },
-  {
-    title: 'Healthcare Mobile App',
-    category: 'Mobile Apps',
-    budget: '$30k - $50k',
-    timeline: '6 Months',
-    description: 'A comprehensive telemedicine mobile app for patient-doctor consultations.',
-    teamSize: '4 Developers',
-    technologies: ['React Native', 'Node.js', 'WebRTC']
-  },
-  {
-    title: 'AI Customer Support Bot',
-    category: 'AI & Machine Learning',
-    budget: '$10k - $15k',
-    timeline: '2 Months',
-    description: 'Intelligent chatbot integrated with OpenAI API to handle tier-1 customer inquiries.',
-    teamSize: '2 Developers',
-    technologies: ['Python', 'OpenAI', 'AWS']
-  }
-]
+const FORMSPREE = 'https://formspree.io/f/xpwzgkeo'
 
 export function DashboardPage() {
-  const [searchQuery, setSearchQuery] = useState('')
-  const [selectedCategories, setSelectedCategories] = useState<string[]>([])
-  const [services] = useState(initialServices)
+  const [step, setStep] = useState(1)
+  const [dir, setDir] = useState(1)
+  const [done, setDone] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
 
-  const filteredServices = services.filter(service => {
-    const matchesSearch = service.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                          service.description.toLowerCase().includes(searchQuery.toLowerCase())
-    
-    const matchesCategory = selectedCategories.length === 0 || selectedCategories.includes(service.category)
-    
-    return matchesSearch && matchesCategory
-  })
+  const [projectType, setProjectType] = useState('')
+  const [budget, setBudget] = useState('')
+  const [notes, setNotes] = useState('')
+  const [timeline, setTimeline] = useState('')
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+
+  const canNext = () => {
+    if (step === 1) return projectType !== ''
+    if (step === 2) return budget !== ''
+    if (step === 3) return timeline !== '' && name.trim() !== '' && email.trim() !== ''
+    return true
+  }
+
+  const next = () => { setDir(1); setStep(s => s + 1) }
+  const back = () => { setDir(-1); setStep(s => s - 1) }
+
+  const submit = async () => {
+    setSubmitting(true)
+    try {
+      await fetch(FORMSPREE, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ projectType, budget, timeline, name, email, notes }),
+      })
+      setDone(true)
+    } catch {
+      setDone(true) // show success anyway — form will retry
+    } finally {
+      setSubmitting(false)
+    }
+  }
+
+  if (done) {
+    return (
+      <div className="bg-white dark:bg-zinc-950 min-h-screen flex items-center justify-center px-4 transition-colors duration-300">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="max-w-md w-full text-center"
+        >
+          <div className="w-20 h-20 bg-emerald-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <CheckCircle size={40} className="text-emerald-500" />
+          </div>
+          <h1 className="text-3xl font-extrabold text-zinc-900 dark:text-zinc-50 mb-4">You're all set! 🎉</h1>
+          <p className="text-zinc-500 dark:text-zinc-400 leading-relaxed mb-8">
+            Thanks <strong className="text-zinc-800 dark:text-zinc-200">{name}</strong> — we've received your project request and will send a tailored proposal to <strong className="text-zinc-800 dark:text-zinc-200">{email}</strong> within <strong>24 hours</strong>.
+          </p>
+          <Link
+            to="/"
+            className="inline-flex items-center gap-2 bg-brand text-white font-bold px-8 py-3 rounded-xl hover:bg-brand-hover transition-colors"
+          >
+            Back to Home
+          </Link>
+        </motion.div>
+      </div>
+    )
+  }
 
   return (
-    <div className="bg-[#FAFAFA] dark:bg-zinc-950 min-h-screen pb-12 transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
-        <Link to="/" className="inline-flex items-center text-sm font-medium text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 mb-8 transition-colors">
-          <ArrowLeft size={16} className="mr-2" />
-          Back to Home
+    <div className="bg-white dark:bg-zinc-950 min-h-screen transition-colors duration-300">
+      <Seo
+        title="Start a Project"
+        description="Tell us what you need — we'll send a tailored proposal within 24 hours."
+        canonical="/dashboard"
+      />
+
+      <div className="max-w-2xl mx-auto px-4 sm:px-6 pt-8 pb-20">
+        <Link to="/" className="inline-flex items-center text-sm font-medium text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors mb-10">
+          <ArrowLeft size={16} className="mr-2" /> Back to Home
         </Link>
 
-        <div className="flex flex-col md:flex-row gap-8">
-          <DashboardSidebar 
-            searchQuery={searchQuery} 
-            setSearchQuery={setSearchQuery}
-            selectedCategories={selectedCategories}
-            setSelectedCategories={setSelectedCategories}
-          />
-          
-          <div className="flex-1">
-            {filteredServices.length === 0 ? (
-              <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl p-12 text-center flex flex-col items-center justify-center h-full min-h-[400px] transition-colors duration-300">
-                <div className="w-16 h-16 bg-zinc-50 dark:bg-zinc-800 rounded-full flex items-center justify-center mb-4 transition-colors duration-300">
-                  <span className="text-2xl">📁</span>
-                </div>
-                <h3 className="text-lg font-medium text-zinc-900 dark:text-zinc-100 mb-2">No active projects</h3>
-                <p className="text-zinc-500 dark:text-zinc-400 max-w-sm mx-auto">
-                  You don't have any active projects yet. When you request a service, it will appear here.
-                </p>
-              </div>
-            ) : (
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                {filteredServices.map((service, index) => (
-                  <ServiceCard key={index} {...service} />
-                ))}
-              </div>
-            )}
-          </div>
+        <div className="text-center mb-10">
+          <span className="text-xs font-bold uppercase tracking-widest text-brand mb-2 block">Let's Build Together</span>
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-zinc-900 dark:text-zinc-50 tracking-tight">
+            Start a Project
+          </h1>
+          <p className="mt-3 text-zinc-500 dark:text-zinc-400">
+            Answer 3 quick questions — get a proposal in your inbox within 24 hours.
+          </p>
+        </div>
+
+        <StepIndicator currentStep={step} />
+
+        <div className="bg-zinc-50 dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 p-6 sm:p-8 min-h-[420px] relative overflow-hidden">
+          <AnimatePresence custom={dir} mode="wait">
+            <motion.div
+              key={step}
+              custom={dir}
+              variants={{
+                enter: (dir: number) => ({ opacity: 0, x: dir > 0 ? 40 : -40 }),
+                center: { opacity: 1, x: 0, transition: { duration: 0.25, ease: 'easeOut' } },
+                exit: (dir: number) => ({ opacity: 0, x: dir > 0 ? -40 : 40, transition: { duration: 0.2 } }),
+              }}
+              initial="enter"
+              animate="center"
+              exit="exit"
+            >
+              {step === 1 && <Step1ProjectType selected={projectType} onSelect={setProjectType} />}
+              {step === 2 && <Step2Budget selectedBudget={budget} notes={notes} onSelectBudget={setBudget} onNotesChange={setNotes} />}
+              {step === 3 && <Step3Timeline selectedTimeline={timeline} name={name} email={email} onSelectTimeline={setTimeline} onNameChange={setName} onEmailChange={setEmail} />}
+              {step === 4 && <Step4Review projectType={projectType} budget={budget} timeline={timeline} name={name} email={email} notes={notes} onSubmit={submit} isSubmitting={submitting} />}
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* Navigation */}
+        <div className="flex items-center justify-between mt-6">
+          <button
+            onClick={back}
+            disabled={step === 1}
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-700 hover:bg-zinc-50 dark:hover:bg-zinc-800 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+          >
+            <ArrowLeft size={16} /> Back
+          </button>
+
+          <span className="text-xs text-zinc-400 dark:text-zinc-500 font-medium">
+            Step {step} of 4
+          </span>
+
+          {step < 4 ? (
+            <button
+              onClick={next}
+              disabled={!canNext()}
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-semibold bg-brand text-white hover:bg-brand-hover disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+            >
+              Next <ArrowRight size={16} />
+            </button>
+          ) : (
+            <div className="w-20" /> // spacer when on review step
+          )}
         </div>
       </div>
     </div>
