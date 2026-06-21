@@ -13,7 +13,7 @@ export function Navbar() {
     { name: 'Services', path: '/services' },
     { name: 'Portfolio', path: '/portfolio' },
     { name: 'Pricing', path: '/pricing' },
-    { name: 'Client Portal', path: '/dashboard' },
+    { name: 'Start a Project', path: '/dashboard' },
   ]
 
   const isActive = (path: string) =>
@@ -76,6 +76,7 @@ export function Navbar() {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 focus:outline-none"
+              aria-label="Toggle navigation menu"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
