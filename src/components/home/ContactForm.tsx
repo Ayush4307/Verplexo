@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { fadeIn } from '../../utils/motion'
 import { validateContactForm, hasErrors, sanitize } from '../../utils/validation'
 import type { ValidationErrors } from '../../utils/validation'
+import { useNavigate } from 'react-router-dom'
 
 export function ContactForm() {
   const [formData, setFormData] = useState({
@@ -14,8 +15,8 @@ export function ContactForm() {
   const [honeypot, setHoneypot] = useState('')
   const [fieldErrors, setFieldErrors] = useState<ValidationErrors>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSuccess, setIsSuccess] = useState(false)
   const [error, setError] = useState('')
+  const navigate = useNavigate()
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -34,12 +35,11 @@ export function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setError('')
-    setIsSuccess(false)
 
     // Honeypot check — bots fill this hidden field, real users don't
     if (honeypot) {
       // Silently pretend success so bots think it worked
-      setIsSuccess(true)
+      navigate('/thank-you')
       return
     }
 
@@ -69,8 +69,8 @@ export function ContactForm() {
       })
 
       if (response.ok) {
-        setIsSuccess(true)
         setFormData({ firstName: '', lastName: '', email: '', message: '' })
+        navigate('/thank-you')
       } else {
         setError('Something went wrong. Please try again.')
       }
@@ -204,14 +204,6 @@ export function ContactForm() {
             {error && (
               <div className="rounded-md bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 p-4">
                 <p className="text-sm font-medium text-red-800 dark:text-red-400">{error}</p>
-              </div>
-            )}
-
-            {isSuccess && (
-              <div className="rounded-md bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 p-4">
-                <p className="text-sm font-medium text-green-800 dark:text-green-400">
-                  Message sent successfully! We will get back to you soon.
-                </p>
               </div>
             )}
 

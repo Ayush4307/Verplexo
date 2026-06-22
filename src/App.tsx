@@ -15,6 +15,7 @@ const ServicesPage  = lazy(() => import('./pages/ServicesPage').then(m => ({ def
 const PortfolioPage = lazy(() => import('./pages/PortfolioPage').then(m => ({ default: m.PortfolioPage })))
 const DashboardPage = lazy(() => import('./pages/DashboardPage').then(m => ({ default: m.DashboardPage })))
 const ContactPage   = lazy(() => import('./pages/ContactPage').then(m => ({ default: m.ContactPage })))
+const ThankYouPage  = lazy(() => import('./pages/ThankYouPage').then(m => ({ default: m.ThankYouPage })))
 const BlogPage      = lazy(() => import('./pages/BlogPage').then(m => ({ default: m.BlogPage })))
 const BlogPostPage  = lazy(() => import('./pages/BlogPostPage').then(m => ({ default: m.BlogPostPage })))
 const AboutPage     = lazy(() => import('./pages/AboutPage').then(m => ({ default: m.AboutPage })))
@@ -44,6 +45,7 @@ function AnimatedRoutes() {
             <Route path="/blog"      element={<BlogPage />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />
             <Route path="/contact"   element={<ContactPage />} />
+            <Route path="/thank-you" element={<ThankYouPage />} />
             <Route path="/about"     element={<AboutPage />} />
             <Route path="/careers"   element={<CareersPage />} />
             <Route path="/privacy"   element={<PrivacyPage />} />

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowLeft, ArrowRight, CheckCircle } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { ArrowLeft, ArrowRight } from 'lucide-react'
+import { Link, useNavigate } from 'react-router-dom'
 import { Seo } from '../components/Seo'
 import { StepIndicator } from '../components/wizard/StepIndicator'
 import { Step1ProjectType } from '../components/wizard/Step1ProjectType'
@@ -14,7 +14,6 @@ const FORMSPREE = 'https://formspree.io/f/xpwzgkeo'
 export function DashboardPage() {
   const [step, setStep] = useState(1)
   const [dir, setDir] = useState(1)
-  const [done, setDone] = useState(false)
   const [submitting, setSubmitting] = useState(false)
 
   const [projectType, setProjectType] = useState('')
@@ -23,6 +22,7 @@ export function DashboardPage() {
   const [timeline, setTimeline] = useState('')
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
+  const navigate = useNavigate()
 
   const canNext = () => {
     if (step === 1) return projectType !== ''
@@ -42,38 +42,12 @@ export function DashboardPage() {
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({ projectType, budget, timeline, name, email, notes }),
       })
-      setDone(true)
+      navigate('/thank-you')
     } catch {
-      setDone(true) // show success anyway — form will retry
+      navigate('/thank-you') // redirect anyway — form will retry
     } finally {
       setSubmitting(false)
     }
-  }
-
-  if (done) {
-    return (
-      <div className="bg-white dark:bg-zinc-950 min-h-screen flex items-center justify-center px-4 transition-colors duration-300">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className="max-w-md w-full text-center"
-        >
-          <div className="w-20 h-20 bg-emerald-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
-            <CheckCircle size={40} className="text-emerald-500" />
-          </div>
-          <h1 className="text-3xl font-extrabold text-zinc-900 dark:text-zinc-50 mb-4">You're all set! 🎉</h1>
-          <p className="text-zinc-500 dark:text-zinc-400 leading-relaxed mb-8">
-            Thanks <strong className="text-zinc-800 dark:text-zinc-200">{name}</strong> — we've received your project request and will send a tailored proposal to <strong className="text-zinc-800 dark:text-zinc-200">{email}</strong> within <strong>24 hours</strong>.
-          </p>
-          <Link
-            to="/"
-            className="inline-flex items-center gap-2 bg-brand text-white font-bold px-8 py-3 rounded-xl hover:bg-brand-hover transition-colors"
-          >
-            Back to Home
-          </Link>
-        </motion.div>
-      </div>
-    )
   }
 
   return (
