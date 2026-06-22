@@ -63,7 +63,7 @@ export function Step4Review({ projectType, budget, timeline, name, email, notes,
       <button
         onClick={onSubmit}
         disabled={isSubmitting}
-        className="w-full bg-brand text-white font-bold py-4 rounded-xl text-base hover:bg-brand-hover transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+        className="w-full bg-brand text-white font-bold py-4 rounded-xl text-base hover:bg-brand-hover transition-colors disabled:opacity-60 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand dark:focus:ring-offset-zinc-900"
       >
         {isSubmitting ? 'Sending…' : 'Submit Project Request →'}
       </button>

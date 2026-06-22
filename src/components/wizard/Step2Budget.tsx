@@ -24,7 +24,7 @@ export function Step2Budget({ selectedBudget, notes, onSelectBudget, onNotesChan
           <button
             key={id}
             onClick={() => onSelectBudget(id)}
-            className={`w-full text-left px-5 py-4 rounded-xl border-2 flex items-center justify-between transition-all duration-200 ${
+            className={`w-full text-left px-5 py-4 rounded-xl border-2 flex items-center justify-between transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent ${
               selectedBudget === id
                 ? 'border-brand bg-brand/5 dark:bg-brand/10'
                 : 'border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 hover:border-brand/50'

@@ -25,7 +25,7 @@ export function Step3Timeline({ selectedTimeline, name, email, onSelectTimeline,
           <button
             key={id}
             onClick={() => onSelectTimeline(id)}
-            className={`text-left p-5 rounded-xl border-2 transition-all duration-200 ${
+            className={`text-left p-5 rounded-xl border-2 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent ${
               selectedTimeline === id
                 ? 'border-brand bg-brand/5 dark:bg-brand/10'
                 : 'border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 hover:border-brand/50'

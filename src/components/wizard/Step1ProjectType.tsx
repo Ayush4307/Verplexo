@@ -24,7 +24,7 @@ export function Step1ProjectType({ selected, onSelect }: Props) {
           <button
             key={id}
             onClick={() => onSelect(id)}
-            className={`text-left p-5 rounded-2xl border-2 transition-all duration-200 group ${
+            className={`text-left p-5 rounded-2xl border-2 transition-all duration-200 group focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent ${
               selected === id
                 ? 'border-brand bg-brand/5 dark:bg-brand/10'
                 : 'border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 hover:border-brand/50'

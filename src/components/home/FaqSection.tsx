@@ -47,12 +47,14 @@ const faqs = [
 
 function FaqItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false)
+  const id = q.toLowerCase().replace(/[^a-z0-9]+/g, '-')
   return (
     <div className="border border-zinc-200 dark:border-zinc-800 rounded-xl overflow-hidden">
       <button
         className="w-full flex items-center justify-between px-6 py-5 text-left bg-white dark:bg-zinc-900 hover:bg-zinc-50 dark:hover:bg-zinc-800/80 transition-colors"
         onClick={() => setOpen(!open)}
         aria-expanded={open}
+        aria-controls={id}
       >
         <span className="font-semibold text-zinc-900 dark:text-zinc-100 text-sm sm:text-base pr-4">{q}</span>
         <ChevronDown
@@ -69,6 +71,7 @@ function FaqItem({ q, a }: { q: string; a: string }) {
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.25, ease: 'easeInOut' }}
             className="overflow-hidden"
+            id={id}
           >
             <div className="px-6 pb-5 pt-2 bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">
               {a}
