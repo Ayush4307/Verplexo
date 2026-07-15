@@ -16,9 +16,6 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Close mobile menu on route change
-  useEffect(() => { setIsOpen(false) }, [pathname])
-
   const links = [
     { name: 'Home',      path: '/' },
     { name: 'About',     path: '/about' },
@@ -106,6 +103,7 @@ export function Navbar() {
               <Link
                 key={link.name}
                 to={link.path}
+                onClick={() => setIsOpen(false)}
                 className={`block px-3 py-2.5 rounded-lg text-base font-medium transition-colors ${
                   isActive(link.path)
                     ? 'text-brand bg-brand/5 dark:bg-brand/10'
@@ -118,6 +116,7 @@ export function Navbar() {
             <div className="pt-2 border-t border-zinc-100 dark:border-zinc-800 mt-2">
               <Link
                 to="/start-a-project"
+                onClick={() => setIsOpen(false)}
                 className="block px-3 py-2.5 rounded-lg text-base font-semibold text-white bg-brand hover:bg-brand-hover transition-colors text-center"
               >
                 Start a Project

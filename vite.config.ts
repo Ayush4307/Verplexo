@@ -9,14 +9,24 @@ export default defineConfig({
     sourcemap: false,
     rollupOptions: {
       output: {
-        // Manual chunk splitting — keeps the initial bundle lean by separating
-        // large vendor libraries into their own cacheable files.
-        manualChunks: {
-          'vendor-react':   ['react', 'react-dom'],
-          'vendor-router':  ['react-router-dom'],
-          'vendor-motion':  ['framer-motion'],
-          'vendor-helmet':  ['react-helmet-async'],
-          'vendor-lucide':  ['lucide-react'],
+        // Function form is required by Rollup's strict types in newer Vite versions.
+        // Splits large vendor libraries into separate cacheable chunks.
+        manualChunks(id) {
+          if (id.includes('node_modules/react-dom') || id.includes('node_modules/react/')) {
+            return 'vendor-react'
+          }
+          if (id.includes('node_modules/react-router-dom') || id.includes('node_modules/react-router/')) {
+            return 'vendor-router'
+          }
+          if (id.includes('node_modules/framer-motion')) {
+            return 'vendor-motion'
+          }
+          if (id.includes('node_modules/lucide-react')) {
+            return 'vendor-lucide'
+          }
+          if (id.includes('node_modules/react-helmet-async')) {
+            return 'vendor-helmet'
+          }
         },
       },
     },
