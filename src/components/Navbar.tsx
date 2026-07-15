@@ -1,27 +1,38 @@
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, Sun, Moon } from 'lucide-react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useTheme } from '../utils/ThemeContext'
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const { theme, toggleTheme } = useTheme()
   const { pathname } = useLocation()
 
+  // Add shadow and subtle blur on scroll
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 10)
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  // Close mobile menu on route change
+  useEffect(() => { setIsOpen(false) }, [pathname])
+
   const links = [
-    { name: 'Home', path: '/' },
-    { name: 'Services', path: '/services' },
+    { name: 'Home',      path: '/' },
+    { name: 'About',     path: '/about' },
+    { name: 'Services',  path: '/services' },
     { name: 'Portfolio', path: '/portfolio' },
-    { name: 'Blog', path: '/blog' },
-    { name: 'Pricing', path: '/pricing' },
-    { name: 'Start a Project', path: '/dashboard' },
+    { name: 'Blog',      path: '/blog' },
+    { name: 'Pricing',   path: '/pricing' },
   ]
 
   const isActive = (path: string) =>
     path === '/' ? pathname === '/' : pathname.startsWith(path)
 
   return (
-    <nav className="border-b border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 sticky top-0 z-50 transition-colors duration-300">
+    <nav className={`border-b border-zinc-200 dark:border-zinc-800 bg-white/95 dark:bg-zinc-950/95 backdrop-blur-sm sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'shadow-sm' : ''}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -33,7 +44,7 @@ export function Navbar() {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-7">
             {links.map((link) => (
               <Link
                 key={link.name}
@@ -49,8 +60,25 @@ export function Navbar() {
             ))}
           </div>
 
-          {/* Desktop Button & Theme Toggle */}
-          <div className="hidden md:flex items-center space-x-6">
+          {/* Desktop CTAs */}
+          <div className="hidden md:flex items-center space-x-4">
+            <button
+              onClick={toggleTheme}
+              className="text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors p-1.5 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800"
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
+            <Link
+              to="/start-a-project"
+              className="bg-brand text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-brand-hover transition-colors shadow-sm"
+            >
+              Start a Project
+            </Link>
+          </div>
+
+          {/* Mobile controls */}
+          <div className="md:hidden flex items-center space-x-3">
             <button
               onClick={toggleTheme}
               className="text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
@@ -58,26 +86,11 @@ export function Navbar() {
             >
               {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
             </button>
-            <Link
-              to="/contact"
-              className="bg-brand text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-brand-hover transition-colors shadow-sm"
-            >
-              Get in Touch
-            </Link>
-          </div>
-
-          {/* Mobile menu button */}
-          <div className="md:hidden flex items-center space-x-4">
-            <button
-              onClick={toggleTheme}
-              className="text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
-            >
-              {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
-            </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 focus:outline-none"
               aria-label="Toggle navigation menu"
+              aria-expanded={isOpen}
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -88,13 +101,12 @@ export function Navbar() {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden bg-white dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800 transition-colors duration-300">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <div className="px-4 pt-2 pb-4 space-y-1">
             {links.map((link) => (
               <Link
                 key={link.name}
                 to={link.path}
-                onClick={() => setIsOpen(false)}
-                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
+                className={`block px-3 py-2.5 rounded-lg text-base font-medium transition-colors ${
                   isActive(link.path)
                     ? 'text-brand bg-brand/5 dark:bg-brand/10'
                     : 'text-zinc-700 dark:text-zinc-300 hover:text-brand hover:bg-zinc-50 dark:hover:bg-zinc-900'
@@ -103,13 +115,14 @@ export function Navbar() {
                 {link.name}
               </Link>
             ))}
-            <Link
-              to="/contact"
-              onClick={() => setIsOpen(false)}
-              className="block px-3 py-2 rounded-md text-base font-medium text-brand hover:bg-zinc-50 dark:hover:bg-zinc-900"
-            >
-              Get in Touch
-            </Link>
+            <div className="pt-2 border-t border-zinc-100 dark:border-zinc-800 mt-2">
+              <Link
+                to="/start-a-project"
+                className="block px-3 py-2.5 rounded-lg text-base font-semibold text-white bg-brand hover:bg-brand-hover transition-colors text-center"
+              >
+                Start a Project
+              </Link>
+            </div>
           </div>
         </div>
       )}
