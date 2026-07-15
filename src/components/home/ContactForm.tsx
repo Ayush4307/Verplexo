@@ -4,6 +4,7 @@ import { fadeIn } from '../../utils/motion'
 import { validateContactForm, hasErrors, sanitize } from '../../utils/validation'
 import type { ValidationErrors } from '../../utils/validation'
 import { useNavigate } from 'react-router-dom'
+import { FORMSPREE_CONTACT } from '../../constants/brand'
 
 export function ContactForm() {
   const [formData, setFormData] = useState({
@@ -62,7 +63,7 @@ export function ContactForm() {
     }
 
     try {
-      const response = await fetch('https://formspree.io/f/your-form-id-here', {
+      const response = await fetch(FORMSPREE_CONTACT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(sanitizedData)
