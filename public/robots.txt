@@ -1,6 +1,4 @@
 User-agent: *
 Allow: /
 
-Disallow: /dashboard
-
-Sitemap: https://verplexo.com/sitemap.xml
+Sitemap: https://verplexo.vercel.app/sitemap.xml
