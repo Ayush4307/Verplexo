@@ -9,7 +9,7 @@ import { Step2Budget } from '../components/wizard/Step2Budget'
 import { Step3Timeline } from '../components/wizard/Step3Timeline'
 import { Step4Review } from '../components/wizard/Step4Review'
 
-const FORMSPREE = 'https://formspree.io/f/xpwzgkeo'
+import { FORMSPREE_ESTIMATOR } from '../constants/brand'
 
 export function DashboardPage() {
   const [step, setStep] = useState(1)
@@ -37,7 +37,7 @@ export function DashboardPage() {
   const submit = async () => {
     setSubmitting(true)
     try {
-      await fetch(FORMSPREE, {
+      await fetch(FORMSPREE_ESTIMATOR, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({ projectType, budget, timeline, name, email, notes }),
@@ -55,7 +55,7 @@ export function DashboardPage() {
       <Seo
         title="Start a Project"
         description="Tell us what you need — we'll send a tailored proposal within 24 hours."
-        canonical="/dashboard"
+        canonical="/start-a-project"
       />
 
       <div className="max-w-2xl mx-auto px-4 sm:px-6 pt-8 pb-20">
