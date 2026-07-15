@@ -4,37 +4,77 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#4F46E5" />
 
-    <!-- Security: Content Security Policy -->
-    <meta http-equiv="Content-Security-Policy" content="
-      default-src 'self';
-      script-src 'self';
-      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-      font-src 'self' https://fonts.gstatic.com;
-      img-src 'self' https://images.unsplash.com data:;
-      connect-src 'self' https://formspree.io;
-      frame-src 'none';
-      object-src 'none';
-      base-uri 'self';
-    " />
+    <!-- Preconnect to font hosts for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- Security: Prevent clickjacking (blocks iframe embedding) -->
-    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <!-- Google Font: Plus Jakarta Sans (non-render-blocking) -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
 
-    <!-- Security: Control what info is sent in the Referer header -->
-    <meta name="referrer" content="strict-origin-when-cross-origin" />
-
+    <!-- SEO: Fallback description (React Helmet overrides this per-page) -->
     <meta
       name="description"
       content="Verplexo builds premium software products, websites, and systems for startups, established companies, and digital creators."
     />
     <title>Verplexo | Full-stack software development for ambitious teams</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+
+    <!-- Security: Control what info is sent in the Referer header -->
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <!-- Security: Prevent clickjacking -->
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+
+    <!-- Security: Content Security Policy (also enforced via vercel.json HTTP headers) -->
+    <meta http-equiv="Content-Security-Policy" content="
+      default-src 'self';
+      script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://clarity.ms;
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+      font-src 'self' https://fonts.gstatic.com;
+      img-src 'self' https://images.unsplash.com data: blob:;
+      connect-src 'self' https://formspree.io https://www.google-analytics.com https://clarity.ms;
+      frame-src 'none';
+      object-src 'none';
+      base-uri 'self';
+    " />
+
+    <!-- ============================================================
+         Google Analytics 4
+         SETUP: Replace G-XXXXXXXXXX with your real Measurement ID
+         from https://analytics.google.com → Admin → Data Streams
+         ============================================================ -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+    <!-- ============================================================
+         Microsoft Clarity
+         SETUP: Replace XXXXXXXXXX with your real Project ID
+         from https://clarity.microsoft.com → Settings → Overview
+         ============================================================ -->
+    <script type="text/javascript">
+      (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "XXXXXXXXXX");
+    </script>
   </head>
   <body>
     <div id="root"></div>
