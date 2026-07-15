@@ -1,3 +1,4 @@
+// eslint-disable-next-line react-refresh/only-export-components -- context modules export both Provider and hook by design
 import { createContext, useContext, useEffect, useState } from 'react'
 
 type Theme = 'light' | 'dark'

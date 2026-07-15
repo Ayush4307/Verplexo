@@ -1,7 +1,7 @@
 import { useParams, Link } from 'react-router-dom'
 import { ArrowLeft, Clock, Calendar } from 'lucide-react'
 import { Seo } from '../components/Seo'
-import { blogPosts } from './BlogPage'
+import { blogPosts } from '../data/blogPosts'
 import { NotFoundPage } from './NotFoundPage'
 
 export function BlogPostPage() {
