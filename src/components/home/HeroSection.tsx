@@ -1,22 +1,23 @@
 import { ArrowRight, Code, Cpu, Smartphone, Layers } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import type { Variants } from 'framer-motion'
 
 const serviceCards = [
-  { icon: Code,       label: 'Web Apps',    delay: 0 },
+  { icon: Code,       label: 'Web Apps',     delay: 0 },
   { icon: Cpu,        label: 'AI Solutions', delay: 0.1, offset: true },
   { icon: Smartphone, label: 'Mobile Apps',  delay: 0.2 },
   { icon: Layers,     label: 'Custom Dev',   delay: 0.3, offset: true },
 ]
 
-// Text stagger animation
-const container = {
-  hidden: {},
+// Text stagger animation — typed to satisfy Framer Motion v12's strict Easing union
+const container: Variants = {
+  hidden:  {},
   visible: { transition: { staggerChildren: 0.12 } },
 }
-const item = {
+const item: Variants = {
   hidden:  { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.25, 0.1, 0.25, 1] } },
 }
 
 export function HeroSection() {
