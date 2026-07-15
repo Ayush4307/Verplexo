@@ -1,4 +1,7 @@
-// eslint-disable-next-line react-refresh/only-export-components -- context modules export both Provider and hook by design
+/* eslint-disable react-refresh/only-export-components */
+// ThemeContext intentionally exports both ThemeProvider (component) and
+// useTheme (hook) from the same file — this is the standard React context
+// pattern. Fast Refresh is suppressed for this file specifically.
 import { createContext, useContext, useEffect, useState } from 'react'
 
 type Theme = 'light' | 'dark'
