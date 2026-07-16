@@ -66,3 +66,5 @@ npm run dev: Starts the Vite development server.
 npm run build: Compiles the TypeScript code and bundles the application for production.
 npm run preview: Bootstraps a local static web server that serves the production bundle.
 npm run lint: Runs ESLint to statically analyze the codebase for errors.
+
+Author - Ayush Singh Pawar , Ayush4307 
